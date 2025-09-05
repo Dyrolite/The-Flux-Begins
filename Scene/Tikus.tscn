@@ -1,0 +1,17 @@
+[gd_scene load_steps=4 format=3 uid="uid://klrqt4wswjlj"]
+
+[ext_resource type="Script" uid="uid://b26ylp5wfg4lp" path="res://Scene/tikus.gd" id="1_71pao"]
+[ext_resource type="Texture2D" uid="uid://df8wcx8wyi3qy" path="res://icon.svg" id="2_2ggj1"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_71pao"]
+
+[node name="Player" type="CharacterBody2D"]
+collision_mask = 14
+script = ExtResource("1_71pao")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.15, 0.15)
+texture = ExtResource("2_2ggj1")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_71pao")
