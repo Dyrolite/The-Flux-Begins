@@ -1,4 +1,4 @@
-[gd_scene load_steps=4 format=3 uid="uid://brk5he38k1ww8"]
+[gd_scene load_steps=7 format=3 uid="uid://brk5he38k1ww8"]
 
 [ext_resource type="Script" uid="uid://b26ylp5wfg4lp" path="res://Scene/tikus.gd" id="1_71pao"]
 [ext_resource type="Texture2D" uid="uid://k2d5ut6cci5m" path="res://Tikus.png" id="2_71pao"]
@@ -6,15 +6,44 @@
 [sub_resource type="CircleShape2D" id="CircleShape2D_71pao"]
 radius = 11.0454
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_71pao"]
+atlas = ExtResource("2_71pao")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2ggj1"]
+atlas = ExtResource("2_71pao")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_rty88"]
+animations = [{
+"frames": [{
+"duration": 1.5,
+"texture": SubResource("AtlasTexture_71pao")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2ggj1")
+}],
+"loop": true,
+"name": &"rat1",
+"speed": 5.0
+}]
+
 [node name="Player" type="CharacterBody2D"]
 collision_mask = 14
 script = ExtResource("1_71pao")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
+visible = false
 texture = ExtResource("2_71pao")
 region_enabled = true
 region_rect = Rect2(0, 0, 32.0003, 32)
 region_filter_clip_enabled = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+visible = false
 shape = SubResource("CircleShape2D_71pao")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_rty88")
+animation = &"rat1"
+frame_progress = 0.557829
