@@ -1,9 +1,37 @@
-[gd_scene load_steps=2 format=3 uid="uid://lkax4b5lkjsh"]
+[gd_scene load_steps=5 format=3 uid="uid://lkax4b5lkjsh"]
 
 [ext_resource type="PackedScene" uid="uid://brk5he38k1ww8" path="res://Scene/Tikus.tscn" id="1_f6udf"]
+[ext_resource type="Texture2D" uid="uid://k2d5ut6cci5m" path="res://Tikus.png" id="2_sblpm"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_r34rm"]
+texture = ExtResource("2_sblpm")
+margins = Vector2i(8, 6)
+0:0/0 = 0
+1:0/0 = 0
+2:0/0 = 0
+3:0/0 = 0
+0:1/0 = 0
+1:1/0 = 0
+2:1/0 = 0
+3:1/0 = 0
+
+[sub_resource type="TileSet" id="TileSet_2wwxx"]
+tile_size = Vector2i(32, 32)
+sources/0 = SubResource("TileSetAtlasSource_r34rm")
 
 [node name="main" type="Node"]
 
 [node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(-1, 0)
 
 [node name="Player" parent="." instance=ExtResource("1_f6udf")]
+scale = Vector2(3, 3)
+
+[node name="Map (for test)" type="Node2D" parent="."]
+
+[node name="TileMap" type="TileMap" parent="."]
+texture_filter = 1
+scale = Vector2(2, 2)
+tile_set = SubResource("TileSet_2wwxx")
+format = 2
+layer_0/tile_data = PackedInt32Array(262142, 0, 0, 262143, 0, 0, 196608, 0, 0, 196609, 0, 0, 131074, 0, 0, 131075, 0, 0, 65539, 0, 0, 3, 0, 0, -65533, 0, 0, -131069, 0, 0, -196605, 0, 0, -196606, 0, 0, -262143, 0, 0, -196610, 0, 0, -131075, 0, 0, -131076, 0, 0, -65540, 0, 0, -4, 0, 0, 65532, 0, 0, 131068, 0, 0, 196604, 0, 0, 196605, 0, 0)
