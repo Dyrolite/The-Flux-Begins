@@ -11,7 +11,7 @@ var movement_direction = Vector2.ZERO
 var next_movement_direction = Vector2.ZERO
 var shape_query = PhysicsShapeQueryParameters2D.new()
 
-@export var speed:float = 320
+@export var speed:float = 300
 
 var is_moving:bool = false
 var dir:String = "none"
