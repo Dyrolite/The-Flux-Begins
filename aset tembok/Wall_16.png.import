@@ -1,0 +1,20 @@
+[remap]
+
+importer="texture_atlas"
+type="Texture2D"
+uid="uid://dc6dl5lyrgdma"
+path="res://.godot/imported/Wall_16.png-3b7bfb9448c9ed25d6a36abbd2da1c6e.res"
+group_file="res://aset tembok/atlaswall.png"
+valid=true
+[deps]
+
+
+source_file="res://aset tembok/Wall_16.png"
+dest_files=["res://.godot/imported/Wall_16.png-3b7bfb9448c9ed25d6a36abbd2da1c6e.res"]
+
+[params]
+
+atlas_file="res://aset tembok/atlaswall.png"
+import_mode=0
+crop_to_region=false
+trim_alpha_border_from_region=true
