@@ -1,0 +1,41 @@
+[gd_scene load_steps=6 format=3 uid="uid://m5eqvhsrhn7w"]
+
+[ext_resource type="Texture2D" uid="uid://daek2psax7i8a" path="res://asset game/Mahasiswa.png" id="1_nns6o"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_sd6cd"]
+atlas = ExtResource("1_nns6o")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_g3wqc"]
+atlas = ExtResource("1_nns6o")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_3lwfv"]
+animations = [{
+"frames": [{
+"duration": 1.5,
+"texture": SubResource("AtlasTexture_sd6cd")
+}, {
+"duration": 1.5,
+"texture": SubResource("AtlasTexture_g3wqc")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_6n587"]
+radius = 13.1529
+
+[node name="Mahasiswa" type="Area2D"]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_3lwfv")
+frame = 1
+frame_progress = 0.178443
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 1)
+shape = SubResource("CircleShape2D_6n587")
+
+[node name="NavigationAgent2D" type="NavigationAgent2D" parent="."]

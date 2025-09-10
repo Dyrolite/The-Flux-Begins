@@ -1,9 +1,10 @@
-[gd_scene load_steps=11 format=3 uid="uid://lkax4b5lkjsh"]
+[gd_scene load_steps=12 format=3 uid="uid://lkax4b5lkjsh"]
 
 [ext_resource type="PackedScene" uid="uid://brk5he38k1ww8" path="res://Scene/Tikus.tscn" id="1_f6udf"]
 [ext_resource type="Texture2D" uid="uid://bvrmy00jrsksi" path="res://asset game/Base dirt.png" id="2_2wwxx"]
 [ext_resource type="PackedScene" uid="uid://ka2gar7i17wj" path="res://Scene/connector.tscn" id="2_3amdw"]
 [ext_resource type="Texture2D" uid="uid://jqh5u6qoaycd" path="res://asset game/Rumput PNG.png" id="3_3amdw"]
+[ext_resource type="PackedScene" uid="uid://m5eqvhsrhn7w" path="res://Scene/mahasiswa.tscn" id="5_3amdw"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_1xcnr"]
 texture = ExtResource("2_2wwxx")
@@ -97,3 +98,8 @@ position = Vector2(-2, 171)
 scale = Vector2(1.25, 1.25)
 
 [node name="Map (for test)" type="Node2D" parent="."]
+
+[node name="Mahasiswas" type="Node" parent="."]
+
+[node name="Mahasiswa" parent="Mahasiswas" instance=ExtResource("5_3amdw")]
+position = Vector2(-1, -111)
