@@ -103,3 +103,21 @@ scale = Vector2(1.25, 1.25)
 
 [node name="Mahasiswa" parent="Mahasiswas" instance=ExtResource("5_3amdw")]
 position = Vector2(-1, -111)
+
+[node name="movement targets" type="Node" parent="."]
+
+[node name="mahasiswa1" type="Node" parent="movement targets"]
+
+[node name="scatter" type="Node" parent="movement targets/mahasiswa1"]
+
+[node name="m1" type="Marker2D" parent="movement targets/mahasiswa1/scatter"]
+position = Vector2(-171, -253)
+
+[node name="m2" type="Marker2D" parent="movement targets/mahasiswa1/scatter"]
+position = Vector2(-300, -254)
+
+[node name="m3" type="Marker2D" parent="movement targets/mahasiswa1/scatter"]
+position = Vector2(-302, -347)
+
+[node name="m4" type="Marker2D" parent="movement targets/mahasiswa1/scatter"]
+position = Vector2(-173, -350)
