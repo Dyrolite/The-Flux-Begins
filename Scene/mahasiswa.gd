@@ -1,43 +1,83 @@
 extends Area2D
 
 var current_scatter_index = 0
-
+var moving = true
 @export var speed = 120
-@export var movement_target : Resource
-@export var tile_map: TileMap
+@export var movement_target : MovementTarget
+@export var tile_map: TileMapLayer
 
+@onready var anim = $AnimatedSprite2D
 @onready var navigation_agent_2d = $NavigationAgent2D
+var scatter_target_nodes: Array[Node2D]
 
 func _ready():
 	navigation_agent_2d.path_desired_distance = 4.0
-	navigation_agent_2d.target_desired_distance = 4.0
-	navigation_agent_2d.target_reached.connect(on_position_reached)
+	navigation_agent_2d.target_desired_distance = 15.0
+	navigation_agent_2d.navigation_finished.connect(on_position_reached) # ganti pakai ini
+	call_deferred("populate_target_nodes")
 
-	call_deferred("setup")
+func animated():
+	if moving == true:
+		anim.play("mahasiswa")
 
-func _process(delta):
-	move_mahasiswa(navigation_agent_2d.get_next_path_position(), delta)
+func populate_target_nodes():
+	if not movement_target:
+		print("ERROR: Resource 'MovementTarget' belum di-assign di Inspector!")
+		return
 
-func move_mahasiswa(next_position: Vector2, delta: float):
-	var current_mahasiswa_position = global_position
-	
-	var new_velocity = (next_position - current_mahasiswa_position).normalized() * speed * delta
-	position += new_velocity
+	for path in movement_target.scatter_target_paths:
+		var node = get_node_or_null(path)
+		if node:
+			scatter_target_nodes.append(node)
+		else:
+			print("PERINGATAN: Gagal menemukan node untuk path: ", path)
+			
+	setup_navigation()
 
-func setup():
-	print(tile_map.get_navigation_map(0))
-	navigation_agent_2d.set_navigation_map(tile_map.get_navigation_map(0))
-	NavigationServer2D.agent_set_map(navigation_agent_2d.get_rid(), tile_map.get_navigation_map(0))
+func setup_navigation():
+	var nav_map = tile_map.get_navigation_map()
+	if nav_map.is_valid():
+		navigation_agent_2d.set_navigation_map(nav_map)
+		print("Peta navigasi berhasil di-set.")
+	else:
+		print("ERROR: Peta navigasi tidak valid!")
+
+	# Memulai gerakan ke target pertama (indeks 0)
 	scatter()
 
-func scatter():
-	navigation_agent_2d.target_position = movement_target.scatter_target[current_scatter_index].position
+func _process(delta):
+	if navigation_agent_2d.is_navigation_finished():
+		return  # jangan jalan kalau sudah sampai
+	var next_waypoint = navigation_agent_2d.get_next_path_position()
+	move_mahasiswa(next_waypoint, delta)
 
-func on_position_reached():
-	if current_scatter_index < 3:
-		current_scatter_index += 1
-	else:
-		current_scatter_index = 0
-		
-	navigation_agent_2d.target_position = movement_target.scatter_target[current_scatter_index].position
+
+func move_mahasiswa(next_position: Vector2, delta: float):
+	var distance_to_next = global_position.distance_to(next_position)
+	if distance_to_next < 0.1:
+		return
+
+	var direction = global_position.direction_to(next_position)
+	var travel_distance = speed * delta
 	
+	if travel_distance > distance_to_next:
+		global_position = next_position
+	else:
+		global_position += direction * travel_distance
+
+func scatter():
+	# Fungsi ini sekarang menjadi satu-satunya tempat untuk mengatur target
+	if scatter_target_nodes.is_empty():
+		return
+	
+	var target_node = scatter_target_nodes[current_scatter_index]
+	navigation_agent_2d.target_position = target_node.position
+	print("======= TARGET BARU DISET: ", target_node.name, " (indeks ", current_scatter_index, ") =======")
+	
+# =============================================================
+# ▼▼▼ FUNGSI INI YANG DIUBAH ▼▼▼
+# =============================================================
+func on_position_reached():
+	print("Selesai di target (indeks ", current_scatter_index, ")")
+	current_scatter_index = (current_scatter_index + 1) % scatter_target_nodes.size()
+	scatter()
