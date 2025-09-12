@@ -42,7 +42,7 @@ region_filter_clip_enabled = true
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_rty88")
 animation = &"rat1"
-frame_progress = 0.557829
+frame_progress = 0.845855
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 visible = false
