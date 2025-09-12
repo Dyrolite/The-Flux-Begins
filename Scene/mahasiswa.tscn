@@ -51,3 +51,13 @@ shape = SubResource("CircleShape2D_6n587")
 [node name="NavigationAgent2D" type="NavigationAgent2D" parent="."]
 path_desired_distance = 4.0
 target_desired_distance = 4.0
+
+[node name="scatter timer" type="Timer" parent="."]
+wait_time = 3.0
+one_shot = true
+
+[node name="updatescattertimer" type="Timer" parent="."]
+wait_time = 0.5
+
+[connection signal="timeout" from="scatter timer" to="." method="_on_scatter_timer_timeout"]
+[connection signal="timeout" from="updatescattertimer" to="." method="_on_updatescattertimer_timeout"]
