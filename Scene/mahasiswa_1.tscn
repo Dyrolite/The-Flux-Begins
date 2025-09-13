@@ -1,0 +1,52 @@
+[gd_scene load_steps=7 format=3 uid="uid://dge3ro6mje5xe"]
+
+[ext_resource type="Texture2D" uid="uid://daek2psax7i8a" path="res://asset game/Mahasiswa.png" id="1_b7t5j"]
+[ext_resource type="Script" uid="uid://do5tv01mufx23" path="res://Scene/mahasiswa_1.gd" id="1_whwey"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xy5sy"]
+atlas = ExtResource("1_b7t5j")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_louu3"]
+atlas = ExtResource("1_b7t5j")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_4btxo"]
+animations = [{
+"frames": [{
+"duration": 1.6,
+"texture": SubResource("AtlasTexture_xy5sy")
+}, {
+"duration": 1.7,
+"texture": SubResource("AtlasTexture_louu3")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_whwey"]
+radius = 13.0
+
+[node name="mahasiswa1" type="Area2D"]
+script = ExtResource("1_whwey")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_4btxo")
+frame = 1
+frame_progress = 0.152482
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_whwey")
+
+[node name="NavigationAgent2D" type="NavigationAgent2D" parent="."]
+
+[node name="scatterTimer" type="Timer" parent="."]
+wait_time = 3.0
+one_shot = true
+
+[node name="UpdateScatterTimer" type="Timer" parent="."]
+wait_time = 0.2
+
+[connection signal="timeout" from="scatterTimer" to="." method="_on_scatter_timer_timeout"]
+[connection signal="timeout" from="UpdateScatterTimer" to="." method="_on_update_scatter_timer_timeout"]
