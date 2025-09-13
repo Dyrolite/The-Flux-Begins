@@ -21,7 +21,7 @@ animations = [{
 "texture": SubResource("AtlasTexture_louu3")
 }],
 "loop": true,
-"name": &"default",
+"name": &"mahasiswa",
 "speed": 5.0
 }]
 
@@ -33,8 +33,7 @@ script = ExtResource("1_whwey")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_4btxo")
-frame = 1
-frame_progress = 0.152482
+animation = &"mahasiswa"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_whwey")

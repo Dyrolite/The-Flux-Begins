@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="MovementTarget" load_steps=2 format=3 uid="uid://b4b5iqtybnc32"]
+[gd_resource type="Resource" load_steps=2 format=3 uid="uid://b4b5iqtybnc32"]
 
 [ext_resource type="Script" uid="uid://wtso603rym82" path="res://resource/movement_target.gd" id="1_ta40g"]
 

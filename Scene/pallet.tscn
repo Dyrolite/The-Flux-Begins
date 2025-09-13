@@ -1,11 +1,11 @@
-[gd_scene load_steps=15 format=3 uid="uid://117hm6vw6rrx"]
+[gd_scene load_steps=15 format=3 uid="uid://6tow3iv3xyyv"]
 
 [ext_resource type="Texture2D" uid="uid://d2c76wq0q6kly" path="res://asset game/coinn-removebg-preview.png" id="1_r8q5o"]
 [ext_resource type="Script" uid="uid://dvq5iet7o0fxd" path="res://Coin.gd" id="1_svtij"]
 [ext_resource type="AudioStream" uid="uid://xkgfkej7engo" path="res://asset game/Sound/135936__bradwesson__collectcoin.wav" id="3_p40kr"]
-[ext_resource type="Script" uid="uid://bw1k7lkcu4obh" path="res://audio_stream_player_2d.gd" id="4_ubkpa"]
+[ext_resource type="Script" path="res://audio_stream_player_2d.gd" id="4_ubkpa"]
 [ext_resource type="AudioStream" uid="uid://bntpk4oimbmrr" path="res://asset game/Sound/game-music-loop-3-144252.mp3" id="5_2kg3a"]
-[ext_resource type="Script" uid="uid://bcurfc10bs638" path="res://ambiene_game.gd" id="6_25h8u"]
+[ext_resource type="Script" path="res://ambiene_game.gd" id="6_25h8u"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_svtij"]
 atlas = ExtResource("1_r8q5o")
@@ -91,6 +91,6 @@ autoplay = true
 max_distance = 139.0
 script = ExtResource("6_25h8u")
 
-[connection signal="body_entered" from="." to="." method="_on_Coin_body_entered"]
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="body_entered" from="." to="." method="_on_Coin_body_entered"]
 [connection signal="timeout" from="Timer" to="." method="_on_DeleteTimer_timeout"]

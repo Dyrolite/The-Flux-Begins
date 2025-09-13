@@ -1,3 +1,4 @@
+class_name coin
 extends Node2D
 
 @onready var right_area2d = $RightColorRect/Area2D

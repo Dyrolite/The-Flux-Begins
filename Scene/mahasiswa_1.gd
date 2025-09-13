@@ -25,10 +25,9 @@ func _ready():
 	navigation_agent_2d.target_desired_distance = 20.0
 	navigation_agent_2d.navigation_finished.connect(on_position_reached) # ganti pakai ini
 	call_deferred("populate_target_nodes")
-
-func animated():
-	if moving == true:
+	if anim:
 		anim.play("mahasiswa")
+
 
 func populate_target_nodes():
 	if not movement_target:

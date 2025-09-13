@@ -1,0 +1,52 @@
+[gd_scene load_steps=4 format=3 uid="uid://br3w5sej4f2qy"]
+
+[ext_resource type="Script" uid="uid://qpjl1ww8kpqh" path="res://Scene/UI.gd" id="1_ml06h"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_2fpva"]
+bg_color = Color(0.620326, 0.475555, 0.200259, 1)
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+border_color = Color(0.864675, 0.864675, 0.864675, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+
+[sub_resource type="LabelSettings" id="LabelSettings_ml06h"]
+font_size = 40
+
+[node name="CanvasLayer" type="CanvasLayer"]
+script = ExtResource("1_ml06h")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 16
+theme_override_constants/margin_top = 16
+theme_override_constants/margin_right = 16
+theme_override_constants/margin_bottom = 16
+
+[node name="CenterContainer" type="CenterContainer" parent="MarginContainer"]
+layout_mode = 2
+
+[node name="Panel" type="Panel" parent="MarginContainer/CenterContainer"]
+custom_minimum_size = Vector2(300, 200)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_2fpva")
+
+[node name="Label" type="Label" parent="MarginContainer/CenterContainer/Panel"]
+layout_mode = 0
+offset_left = 32.0
+offset_top = 2.0
+offset_right = 271.0
+offset_bottom = 115.0
+text = "You Won"
+label_settings = SubResource("LabelSettings_ml06h")
+horizontal_alignment = 1
+vertical_alignment = 1
+uppercase = true
