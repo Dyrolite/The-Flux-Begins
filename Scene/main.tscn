@@ -1,11 +1,16 @@
+
 [gd_scene load_steps=43 format=4 uid="uid://lkax4b5lkjsh"]
 
 [ext_resource type="PackedScene" uid="uid://brk5he38k1ww8" path="res://Scene/Tikus.tscn" id="1_f6udf"]
 [ext_resource type="Texture2D" uid="uid://bvrmy00jrsksi" path="res://asset game/Base dirt.png" id="2_2wwxx"]
 [ext_resource type="PackedScene" uid="uid://ka2gar7i17wj" path="res://Scene/connector.tscn" id="2_3amdw"]
 [ext_resource type="Texture2D" uid="uid://jqh5u6qoaycd" path="res://asset game/Rumput PNG.png" id="3_3amdw"]
+
 [ext_resource type="PackedScene" uid="uid://bsc7osvsj5koe" path="res://Scene/mahasiswa.tscn" id="5_3amdw"]
 [ext_resource type="Resource" uid="uid://nls2vbl6df2p" path="res://ResourceMM/mahasiswa movement.tres" id="6_1xcnr"]
+
+[ext_resource type="PackedScene" path="res://Scene/pallet.tscn" id="7_pallet"]
+
 
 [sub_resource type="TileMapPattern" id="TileMapPattern_3amdw"]
 tile_data = PackedInt32Array(0, 0, 655360, 65536, 0, 589825, 131072, 0, 524290, 196608, 0, 458755)
@@ -175,601 +180,24 @@ agent_radius = 0.0
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_1xcnr"]
 texture = ExtResource("2_2wwxx")
-0:0/next_alternative_id = 23
 0:0/0 = 0
-0:0/0/navigation_layer_0/polygon = SubResource("NavigationPolygon_3amdw")
-0:0/5 = 5
-0:0/5/navigation_layer_0/polygon = SubResource("NavigationPolygon_2ix4a")
-0:0/6 = 6
-0:0/6/navigation_layer_0/polygon = SubResource("NavigationPolygon_p2wc2")
-0:0/7 = 7
-0:0/7/navigation_layer_0/polygon = SubResource("NavigationPolygon_jbas8")
-0:0/8 = 8
-0:0/8/navigation_layer_0/polygon = SubResource("NavigationPolygon_p4j74")
-0:0/9 = 9
-0:0/9/navigation_layer_0/polygon = SubResource("NavigationPolygon_hiice")
-0:0/10 = 10
-0:0/10/navigation_layer_0/polygon = SubResource("NavigationPolygon_1xcnr")
-0:0/11 = 11
-0:0/11/navigation_layer_0/polygon = SubResource("NavigationPolygon_ow1sv")
-0:0/12 = 12
-0:0/12/navigation_layer_0/polygon = SubResource("NavigationPolygon_75buv")
-0:0/13 = 13
-0:0/13/navigation_layer_0/polygon = SubResource("NavigationPolygon_c2iwn")
-0:0/14 = 14
-0:0/14/navigation_layer_0/polygon = SubResource("NavigationPolygon_3pt4j")
-0:0/15 = 15
-0:0/15/navigation_layer_0/polygon = SubResource("NavigationPolygon_7y4ci")
-0:0/16 = 16
-0:0/16/navigation_layer_0/polygon = SubResource("NavigationPolygon_mxd2g")
-0:0/17 = 17
-0:0/17/navigation_layer_0/polygon = SubResource("NavigationPolygon_0sxm5")
-0:0/19 = 19
-0:0/19/navigation_layer_0/polygon = SubResource("NavigationPolygon_hspdg")
-0:0/20 = 20
-0:0/20/navigation_layer_0/polygon = SubResource("NavigationPolygon_j63at")
-0:0/21 = 21
-0:0/21/navigation_layer_0/polygon = SubResource("NavigationPolygon_6njx3")
-0:0/22 = 22
-0:0/22/navigation_layer_0/polygon = SubResource("NavigationPolygon_0y2cb")
-1:0/next_alternative_id = 20
 1:0/0 = 0
-1:0/0/navigation_layer_0/polygon = SubResource("NavigationPolygon_3amdw")
-1:0/2 = 2
-1:0/2/navigation_layer_0/polygon = SubResource("NavigationPolygon_sor6r")
-1:0/3 = 3
-1:0/3/navigation_layer_0/polygon = SubResource("NavigationPolygon_p2wc2")
-1:0/4 = 4
-1:0/4/navigation_layer_0/polygon = SubResource("NavigationPolygon_jbas8")
-1:0/5 = 5
-1:0/5/navigation_layer_0/polygon = SubResource("NavigationPolygon_p4j74")
-1:0/6 = 6
-1:0/6/navigation_layer_0/polygon = SubResource("NavigationPolygon_hiice")
-1:0/7 = 7
-1:0/7/navigation_layer_0/polygon = SubResource("NavigationPolygon_1xcnr")
-1:0/8 = 8
-1:0/8/navigation_layer_0/polygon = SubResource("NavigationPolygon_ow1sv")
-1:0/9 = 9
-1:0/9/navigation_layer_0/polygon = SubResource("NavigationPolygon_75buv")
-1:0/10 = 10
-1:0/10/navigation_layer_0/polygon = SubResource("NavigationPolygon_c2iwn")
-1:0/11 = 11
-1:0/11/navigation_layer_0/polygon = SubResource("NavigationPolygon_3pt4j")
-1:0/12 = 12
-1:0/12/navigation_layer_0/polygon = SubResource("NavigationPolygon_7y4ci")
-1:0/13 = 13
-1:0/13/navigation_layer_0/polygon = SubResource("NavigationPolygon_mxd2g")
-1:0/14 = 14
-1:0/14/navigation_layer_0/polygon = SubResource("NavigationPolygon_0sxm5")
-1:0/16 = 16
-1:0/16/navigation_layer_0/polygon = SubResource("NavigationPolygon_hspdg")
-1:0/17 = 17
-1:0/17/navigation_layer_0/polygon = SubResource("NavigationPolygon_j63at")
-1:0/18 = 18
-1:0/18/navigation_layer_0/polygon = SubResource("NavigationPolygon_6njx3")
-1:0/19 = 19
-1:0/19/navigation_layer_0/polygon = SubResource("NavigationPolygon_0y2cb")
-2:0/next_alternative_id = 20
 2:0/0 = 0
-2:0/0/navigation_layer_0/polygon = SubResource("NavigationPolygon_3amdw")
-2:0/2 = 2
-2:0/2/navigation_layer_0/polygon = SubResource("NavigationPolygon_aam5o")
-2:0/3 = 3
-2:0/3/navigation_layer_0/polygon = SubResource("NavigationPolygon_p2wc2")
-2:0/4 = 4
-2:0/4/navigation_layer_0/polygon = SubResource("NavigationPolygon_jbas8")
-2:0/5 = 5
-2:0/5/navigation_layer_0/polygon = SubResource("NavigationPolygon_p4j74")
-2:0/6 = 6
-2:0/6/navigation_layer_0/polygon = SubResource("NavigationPolygon_hiice")
-2:0/7 = 7
-2:0/7/navigation_layer_0/polygon = SubResource("NavigationPolygon_1xcnr")
-2:0/8 = 8
-2:0/8/navigation_layer_0/polygon = SubResource("NavigationPolygon_ow1sv")
-2:0/9 = 9
-2:0/9/navigation_layer_0/polygon = SubResource("NavigationPolygon_75buv")
-2:0/10 = 10
-2:0/10/navigation_layer_0/polygon = SubResource("NavigationPolygon_c2iwn")
-2:0/11 = 11
-2:0/11/navigation_layer_0/polygon = SubResource("NavigationPolygon_nyb1q")
-2:0/12 = 12
-2:0/12/navigation_layer_0/polygon = SubResource("NavigationPolygon_7y4ci")
-2:0/13 = 13
-2:0/13/navigation_layer_0/polygon = SubResource("NavigationPolygon_mxd2g")
-2:0/14 = 14
-2:0/14/navigation_layer_0/polygon = SubResource("NavigationPolygon_0sxm5")
-2:0/16 = 16
-2:0/16/navigation_layer_0/polygon = SubResource("NavigationPolygon_hspdg")
-2:0/17 = 17
-2:0/17/navigation_layer_0/polygon = SubResource("NavigationPolygon_j63at")
-2:0/18 = 18
-2:0/18/navigation_layer_0/polygon = SubResource("NavigationPolygon_6njx3")
-2:0/19 = 19
-2:0/19/navigation_layer_0/polygon = SubResource("NavigationPolygon_0y2cb")
-3:0/next_alternative_id = 20
 3:0/0 = 0
-3:0/0/navigation_layer_0/polygon = SubResource("NavigationPolygon_3amdw")
-3:0/2 = 2
-3:0/2/navigation_layer_0/polygon = SubResource("NavigationPolygon_t372l")
-3:0/3 = 3
-3:0/3/navigation_layer_0/polygon = SubResource("NavigationPolygon_xw8bv")
-3:0/4 = 4
-3:0/4/navigation_layer_0/polygon = SubResource("NavigationPolygon_jbas8")
-3:0/5 = 5
-3:0/5/navigation_layer_0/polygon = SubResource("NavigationPolygon_p4j74")
-3:0/6 = 6
-3:0/6/navigation_layer_0/polygon = SubResource("NavigationPolygon_hiice")
-3:0/7 = 7
-3:0/7/navigation_layer_0/polygon = SubResource("NavigationPolygon_1xcnr")
-3:0/8 = 8
-3:0/8/navigation_layer_0/polygon = SubResource("NavigationPolygon_ow1sv")
-3:0/9 = 9
-3:0/9/navigation_layer_0/polygon = SubResource("NavigationPolygon_75buv")
-3:0/10 = 10
-3:0/10/navigation_layer_0/polygon = SubResource("NavigationPolygon_c2iwn")
-3:0/11 = 11
-3:0/11/navigation_layer_0/polygon = SubResource("NavigationPolygon_nyb1q")
-3:0/12 = 12
-3:0/12/navigation_layer_0/polygon = SubResource("NavigationPolygon_7y4ci")
-3:0/13 = 13
-3:0/13/navigation_layer_0/polygon = SubResource("NavigationPolygon_mxd2g")
-3:0/14 = 14
-3:0/14/navigation_layer_0/polygon = SubResource("NavigationPolygon_0sxm5")
-3:0/16 = 16
-3:0/16/navigation_layer_0/polygon = SubResource("NavigationPolygon_hspdg")
-3:0/17 = 17
-3:0/17/navigation_layer_0/polygon = SubResource("NavigationPolygon_wimqa")
-3:0/18 = 18
-3:0/18/navigation_layer_0/polygon = SubResource("NavigationPolygon_6njx3")
-3:0/19 = 19
-3:0/19/navigation_layer_0/polygon = SubResource("NavigationPolygon_0y2cb")
-0:1/next_alternative_id = 23
 0:1/0 = 0
-0:1/0/navigation_layer_0/polygon = SubResource("NavigationPolygon_3amdw")
-0:1/4 = 4
-0:1/4/navigation_layer_0/polygon = SubResource("NavigationPolygon_sor6r")
-0:1/5 = 5
-0:1/5/navigation_layer_0/polygon = SubResource("NavigationPolygon_p2wc2")
-0:1/6 = 6
-0:1/6/navigation_layer_0/polygon = SubResource("NavigationPolygon_jbas8")
-0:1/7 = 7
-0:1/7/navigation_layer_0/polygon = SubResource("NavigationPolygon_p4j74")
-0:1/8 = 8
-0:1/8/navigation_layer_0/polygon = SubResource("NavigationPolygon_hiice")
-0:1/9 = 9
-0:1/9/navigation_layer_0/polygon = SubResource("NavigationPolygon_1xcnr")
-0:1/10 = 10
-0:1/10/navigation_layer_0/polygon = SubResource("NavigationPolygon_ow1sv")
-0:1/12 = 12
-0:1/12/navigation_layer_0/polygon = SubResource("NavigationPolygon_75buv")
-0:1/13 = 13
-0:1/13/navigation_layer_0/polygon = SubResource("NavigationPolygon_c2iwn")
-0:1/14 = 14
-0:1/14/navigation_layer_0/polygon = SubResource("NavigationPolygon_3pt4j")
-0:1/15 = 15
-0:1/15/navigation_layer_0/polygon = SubResource("NavigationPolygon_7y4ci")
-0:1/16 = 16
-0:1/16/navigation_layer_0/polygon = SubResource("NavigationPolygon_mxd2g")
-0:1/17 = 17
-0:1/17/navigation_layer_0/polygon = SubResource("NavigationPolygon_0sxm5")
-0:1/19 = 19
-0:1/19/navigation_layer_0/polygon = SubResource("NavigationPolygon_hspdg")
-0:1/20 = 20
-0:1/20/navigation_layer_0/polygon = SubResource("NavigationPolygon_j63at")
-0:1/21 = 21
-0:1/21/navigation_layer_0/polygon = SubResource("NavigationPolygon_6njx3")
-0:1/22 = 22
-0:1/22/navigation_layer_0/polygon = SubResource("NavigationPolygon_0y2cb")
-1:1/next_alternative_id = 20
 1:1/0 = 0
-1:1/0/navigation_layer_0/polygon = SubResource("NavigationPolygon_3amdw")
-1:1/2 = 2
-1:1/2/navigation_layer_0/polygon = SubResource("NavigationPolygon_aam5o")
-1:1/3 = 3
-1:1/3/navigation_layer_0/polygon = SubResource("NavigationPolygon_p2wc2")
-1:1/4 = 4
-1:1/4/navigation_layer_0/polygon = SubResource("NavigationPolygon_jbas8")
-1:1/5 = 5
-1:1/5/navigation_layer_0/polygon = SubResource("NavigationPolygon_p4j74")
-1:1/6 = 6
-1:1/6/navigation_layer_0/polygon = SubResource("NavigationPolygon_hiice")
-1:1/7 = 7
-1:1/7/navigation_layer_0/polygon = SubResource("NavigationPolygon_1xcnr")
-1:1/8 = 8
-1:1/8/navigation_layer_0/polygon = SubResource("NavigationPolygon_ow1sv")
-1:1/9 = 9
-1:1/9/navigation_layer_0/polygon = SubResource("NavigationPolygon_75buv")
-1:1/10 = 10
-1:1/10/navigation_layer_0/polygon = SubResource("NavigationPolygon_c2iwn")
-1:1/11 = 11
-1:1/11/navigation_layer_0/polygon = SubResource("NavigationPolygon_3pt4j")
-1:1/12 = 12
-1:1/12/navigation_layer_0/polygon = SubResource("NavigationPolygon_7y4ci")
-1:1/13 = 13
-1:1/13/navigation_layer_0/polygon = SubResource("NavigationPolygon_mxd2g")
-1:1/14 = 14
-1:1/14/navigation_layer_0/polygon = SubResource("NavigationPolygon_0sxm5")
-1:1/16 = 16
-1:1/16/navigation_layer_0/polygon = SubResource("NavigationPolygon_hspdg")
-1:1/17 = 17
-1:1/17/navigation_layer_0/polygon = SubResource("NavigationPolygon_j63at")
-1:1/18 = 18
-1:1/18/navigation_layer_0/polygon = SubResource("NavigationPolygon_6njx3")
-1:1/19 = 19
-1:1/19/navigation_layer_0/polygon = SubResource("NavigationPolygon_0y2cb")
-2:1/next_alternative_id = 20
 2:1/0 = 0
-2:1/0/navigation_layer_0/polygon = SubResource("NavigationPolygon_3amdw")
-2:1/2 = 2
-2:1/2/navigation_layer_0/polygon = SubResource("NavigationPolygon_aam5o")
-2:1/3 = 3
-2:1/3/navigation_layer_0/polygon = SubResource("NavigationPolygon_xw8bv")
-2:1/4 = 4
-2:1/4/navigation_layer_0/polygon = SubResource("NavigationPolygon_jbas8")
-2:1/5 = 5
-2:1/5/navigation_layer_0/polygon = SubResource("NavigationPolygon_p4j74")
-2:1/6 = 6
-2:1/6/navigation_layer_0/polygon = SubResource("NavigationPolygon_hiice")
-2:1/7 = 7
-2:1/7/navigation_layer_0/polygon = SubResource("NavigationPolygon_1xcnr")
-2:1/8 = 8
-2:1/8/navigation_layer_0/polygon = SubResource("NavigationPolygon_ow1sv")
-2:1/9 = 9
-2:1/9/navigation_layer_0/polygon = SubResource("NavigationPolygon_75buv")
-2:1/10 = 10
-2:1/10/navigation_layer_0/polygon = SubResource("NavigationPolygon_c2iwn")
-2:1/11 = 11
-2:1/11/navigation_layer_0/polygon = SubResource("NavigationPolygon_nyb1q")
-2:1/12 = 12
-2:1/12/navigation_layer_0/polygon = SubResource("NavigationPolygon_7y4ci")
-2:1/13 = 13
-2:1/13/navigation_layer_0/polygon = SubResource("NavigationPolygon_mxd2g")
-2:1/14 = 14
-2:1/14/navigation_layer_0/polygon = SubResource("NavigationPolygon_0sxm5")
-2:1/16 = 16
-2:1/16/navigation_layer_0/polygon = SubResource("NavigationPolygon_hspdg")
-2:1/17 = 17
-2:1/17/navigation_layer_0/polygon = SubResource("NavigationPolygon_j63at")
-2:1/18 = 18
-2:1/18/navigation_layer_0/polygon = SubResource("NavigationPolygon_6njx3")
-2:1/19 = 19
-2:1/19/navigation_layer_0/polygon = SubResource("NavigationPolygon_0y2cb")
-3:1/next_alternative_id = 20
 3:1/0 = 0
-3:1/0/navigation_layer_0/polygon = SubResource("NavigationPolygon_3amdw")
-3:1/2 = 2
-3:1/2/navigation_layer_0/polygon = SubResource("NavigationPolygon_t372l")
-3:1/3 = 3
-3:1/3/navigation_layer_0/polygon = SubResource("NavigationPolygon_xw8bv")
-3:1/4 = 4
-3:1/4/navigation_layer_0/polygon = SubResource("NavigationPolygon_jbas8")
-3:1/5 = 5
-3:1/5/navigation_layer_0/polygon = SubResource("NavigationPolygon_p4j74")
-3:1/6 = 6
-3:1/6/navigation_layer_0/polygon = SubResource("NavigationPolygon_hiice")
-3:1/7 = 7
-3:1/7/navigation_layer_0/polygon = SubResource("NavigationPolygon_1xcnr")
-3:1/8 = 8
-3:1/8/navigation_layer_0/polygon = SubResource("NavigationPolygon_ow1sv")
-3:1/9 = 9
-3:1/9/navigation_layer_0/polygon = SubResource("NavigationPolygon_75buv")
-3:1/10 = 10
-3:1/10/navigation_layer_0/polygon = SubResource("NavigationPolygon_c2iwn")
-3:1/11 = 11
-3:1/11/navigation_layer_0/polygon = SubResource("NavigationPolygon_nyb1q")
-3:1/12 = 12
-3:1/12/navigation_layer_0/polygon = SubResource("NavigationPolygon_7y4ci")
-3:1/13 = 13
-3:1/13/navigation_layer_0/polygon = SubResource("NavigationPolygon_mxd2g")
-3:1/14 = 14
-3:1/14/navigation_layer_0/polygon = SubResource("NavigationPolygon_0sxm5")
-3:1/16 = 16
-3:1/16/navigation_layer_0/polygon = SubResource("NavigationPolygon_hspdg")
-3:1/17 = 17
-3:1/17/navigation_layer_0/polygon = SubResource("NavigationPolygon_wimqa")
-3:1/18 = 18
-3:1/18/navigation_layer_0/polygon = SubResource("NavigationPolygon_6njx3")
-3:1/19 = 19
-3:1/19/navigation_layer_0/polygon = SubResource("NavigationPolygon_0y2cb")
-0:2/next_alternative_id = 21
 0:2/0 = 0
-0:2/0/navigation_layer_0/polygon = SubResource("NavigationPolygon_pqe63")
-0:2/2 = 2
-0:2/2/navigation_layer_0/polygon = SubResource("NavigationPolygon_sor6r")
-0:2/3 = 3
-0:2/3/navigation_layer_0/polygon = SubResource("NavigationPolygon_p2wc2")
-0:2/5 = 5
-0:2/5/navigation_layer_0/polygon = SubResource("NavigationPolygon_jbas8")
-0:2/6 = 6
-0:2/6/navigation_layer_0/polygon = SubResource("NavigationPolygon_p4j74")
-0:2/7 = 7
-0:2/7/navigation_layer_0/polygon = SubResource("NavigationPolygon_hiice")
-0:2/8 = 8
-0:2/8/navigation_layer_0/polygon = SubResource("NavigationPolygon_1xcnr")
-0:2/9 = 9
-0:2/9/navigation_layer_0/polygon = SubResource("NavigationPolygon_ow1sv")
-0:2/10 = 10
-0:2/10/navigation_layer_0/polygon = SubResource("NavigationPolygon_75buv")
-0:2/11 = 11
-0:2/11/navigation_layer_0/polygon = SubResource("NavigationPolygon_c2iwn")
-0:2/12 = 12
-0:2/12/navigation_layer_0/polygon = SubResource("NavigationPolygon_3pt4j")
-0:2/13 = 13
-0:2/13/navigation_layer_0/polygon = SubResource("NavigationPolygon_7y4ci")
-0:2/14 = 14
-0:2/14/navigation_layer_0/polygon = SubResource("NavigationPolygon_mxd2g")
-0:2/15 = 15
-0:2/15/navigation_layer_0/polygon = SubResource("NavigationPolygon_0sxm5")
-0:2/17 = 17
-0:2/17/navigation_layer_0/polygon = SubResource("NavigationPolygon_hspdg")
-0:2/18 = 18
-0:2/18/navigation_layer_0/polygon = SubResource("NavigationPolygon_j63at")
-0:2/19 = 19
-0:2/19/navigation_layer_0/polygon = SubResource("NavigationPolygon_6njx3")
-0:2/20 = 20
-0:2/20/navigation_layer_0/polygon = SubResource("NavigationPolygon_0y2cb")
-1:2/next_alternative_id = 20
 1:2/0 = 0
-1:2/0/navigation_layer_0/polygon = SubResource("NavigationPolygon_3amdw")
-1:2/2 = 2
-1:2/2/navigation_layer_0/polygon = SubResource("NavigationPolygon_aam5o")
-1:2/3 = 3
-1:2/3/navigation_layer_0/polygon = SubResource("NavigationPolygon_p2wc2")
-1:2/4 = 4
-1:2/4/navigation_layer_0/polygon = SubResource("NavigationPolygon_jbas8")
-1:2/5 = 5
-1:2/5/navigation_layer_0/polygon = SubResource("NavigationPolygon_p4j74")
-1:2/6 = 6
-1:2/6/navigation_layer_0/polygon = SubResource("NavigationPolygon_hiice")
-1:2/7 = 7
-1:2/7/navigation_layer_0/polygon = SubResource("NavigationPolygon_1xcnr")
-1:2/8 = 8
-1:2/8/navigation_layer_0/polygon = SubResource("NavigationPolygon_ow1sv")
-1:2/9 = 9
-1:2/9/navigation_layer_0/polygon = SubResource("NavigationPolygon_75buv")
-1:2/10 = 10
-1:2/10/navigation_layer_0/polygon = SubResource("NavigationPolygon_c2iwn")
-1:2/11 = 11
-1:2/11/navigation_layer_0/polygon = SubResource("NavigationPolygon_3pt4j")
-1:2/12 = 12
-1:2/12/navigation_layer_0/polygon = SubResource("NavigationPolygon_7y4ci")
-1:2/13 = 13
-1:2/13/navigation_layer_0/polygon = SubResource("NavigationPolygon_mxd2g")
-1:2/14 = 14
-1:2/14/navigation_layer_0/polygon = SubResource("NavigationPolygon_0sxm5")
-1:2/16 = 16
-1:2/16/navigation_layer_0/polygon = SubResource("NavigationPolygon_hspdg")
-1:2/17 = 17
-1:2/17/navigation_layer_0/polygon = SubResource("NavigationPolygon_j63at")
-1:2/18 = 18
-1:2/18/navigation_layer_0/polygon = SubResource("NavigationPolygon_6njx3")
-1:2/19 = 19
-1:2/19/navigation_layer_0/polygon = SubResource("NavigationPolygon_0y2cb")
-2:2/next_alternative_id = 20
 2:2/0 = 0
-2:2/0/navigation_layer_0/polygon = SubResource("NavigationPolygon_3amdw")
-2:2/2 = 2
-2:2/2/navigation_layer_0/polygon = SubResource("NavigationPolygon_aam5o")
-2:2/3 = 3
-2:2/3/navigation_layer_0/polygon = SubResource("NavigationPolygon_xw8bv")
-2:2/4 = 4
-2:2/4/navigation_layer_0/polygon = SubResource("NavigationPolygon_jbas8")
-2:2/5 = 5
-2:2/5/navigation_layer_0/polygon = SubResource("NavigationPolygon_p4j74")
-2:2/6 = 6
-2:2/6/navigation_layer_0/polygon = SubResource("NavigationPolygon_hiice")
-2:2/7 = 7
-2:2/7/navigation_layer_0/polygon = SubResource("NavigationPolygon_1xcnr")
-2:2/8 = 8
-2:2/8/navigation_layer_0/polygon = SubResource("NavigationPolygon_ow1sv")
-2:2/9 = 9
-2:2/9/navigation_layer_0/polygon = SubResource("NavigationPolygon_75buv")
-2:2/10 = 10
-2:2/10/navigation_layer_0/polygon = SubResource("NavigationPolygon_c2iwn")
-2:2/11 = 11
-2:2/11/navigation_layer_0/polygon = SubResource("NavigationPolygon_nyb1q")
-2:2/12 = 12
-2:2/12/navigation_layer_0/polygon = SubResource("NavigationPolygon_7y4ci")
-2:2/13 = 13
-2:2/13/navigation_layer_0/polygon = SubResource("NavigationPolygon_mxd2g")
-2:2/14 = 14
-2:2/14/navigation_layer_0/polygon = SubResource("NavigationPolygon_0sxm5")
-2:2/16 = 16
-2:2/16/navigation_layer_0/polygon = SubResource("NavigationPolygon_hspdg")
-2:2/17 = 17
-2:2/17/navigation_layer_0/polygon = SubResource("NavigationPolygon_j63at")
-2:2/18 = 18
-2:2/18/navigation_layer_0/polygon = SubResource("NavigationPolygon_6njx3")
-2:2/19 = 19
-2:2/19/navigation_layer_0/polygon = SubResource("NavigationPolygon_0y2cb")
-3:2/next_alternative_id = 20
 3:2/0 = 0
-3:2/0/navigation_layer_0/polygon = SubResource("NavigationPolygon_3amdw")
-3:2/2 = 2
-3:2/2/navigation_layer_0/polygon = SubResource("NavigationPolygon_t372l")
-3:2/3 = 3
-3:2/3/navigation_layer_0/polygon = SubResource("NavigationPolygon_xw8bv")
-3:2/4 = 4
-3:2/4/navigation_layer_0/polygon = SubResource("NavigationPolygon_jbas8")
-3:2/5 = 5
-3:2/5/navigation_layer_0/polygon = SubResource("NavigationPolygon_p4j74")
-3:2/6 = 6
-3:2/6/navigation_layer_0/polygon = SubResource("NavigationPolygon_hiice")
-3:2/7 = 7
-3:2/7/navigation_layer_0/polygon = SubResource("NavigationPolygon_1xcnr")
-3:2/8 = 8
-3:2/8/navigation_layer_0/polygon = SubResource("NavigationPolygon_ow1sv")
-3:2/9 = 9
-3:2/9/navigation_layer_0/polygon = SubResource("NavigationPolygon_75buv")
-3:2/10 = 10
-3:2/10/navigation_layer_0/polygon = SubResource("NavigationPolygon_c2iwn")
-3:2/11 = 11
-3:2/11/navigation_layer_0/polygon = SubResource("NavigationPolygon_nyb1q")
-3:2/12 = 12
-3:2/12/navigation_layer_0/polygon = SubResource("NavigationPolygon_7y4ci")
-3:2/13 = 13
-3:2/13/navigation_layer_0/polygon = SubResource("NavigationPolygon_uctnp")
-3:2/14 = 14
-3:2/14/navigation_layer_0/polygon = SubResource("NavigationPolygon_0sxm5")
-3:2/16 = 16
-3:2/16/navigation_layer_0/polygon = SubResource("NavigationPolygon_hspdg")
-3:2/17 = 17
-3:2/17/navigation_layer_0/polygon = SubResource("NavigationPolygon_wimqa")
-3:2/18 = 18
-3:2/18/navigation_layer_0/polygon = SubResource("NavigationPolygon_6njx3")
-3:2/19 = 19
-3:2/19/navigation_layer_0/polygon = SubResource("NavigationPolygon_0y2cb")
-0:3/next_alternative_id = 21
 0:3/0 = 0
-0:3/0/navigation_layer_0/polygon = SubResource("NavigationPolygon_3amdw")
-0:3/2 = 2
-0:3/2/navigation_layer_0/polygon = SubResource("NavigationPolygon_sor6r")
-0:3/3 = 3
-0:3/3/navigation_layer_0/polygon = SubResource("NavigationPolygon_p2wc2")
-0:3/4 = 4
-0:3/4/navigation_layer_0/polygon = SubResource("NavigationPolygon_jbas8")
-0:3/5 = 5
-0:3/5/navigation_layer_0/polygon = SubResource("NavigationPolygon_p4j74")
-0:3/6 = 6
-0:3/6/navigation_layer_0/polygon = SubResource("NavigationPolygon_hiice")
-0:3/7 = 7
-0:3/7/navigation_layer_0/polygon = SubResource("NavigationPolygon_1xcnr")
-0:3/8 = 8
-0:3/8/navigation_layer_0/polygon = SubResource("NavigationPolygon_ow1sv")
-0:3/9 = 9
-0:3/9/navigation_layer_0/polygon = SubResource("NavigationPolygon_75buv")
-0:3/10 = 10
-0:3/10/navigation_layer_0/polygon = SubResource("NavigationPolygon_c2iwn")
-0:3/11 = 11
-0:3/11/navigation_layer_0/polygon = SubResource("NavigationPolygon_3pt4j")
-0:3/12 = 12
-0:3/12/navigation_layer_0/polygon = SubResource("NavigationPolygon_7y4ci")
-0:3/14 = 14
-0:3/14/navigation_layer_0/polygon = SubResource("NavigationPolygon_mxd2g")
-0:3/15 = 15
-0:3/15/navigation_layer_0/polygon = SubResource("NavigationPolygon_0sxm5")
-0:3/17 = 17
-0:3/17/navigation_layer_0/polygon = SubResource("NavigationPolygon_hspdg")
-0:3/18 = 18
-0:3/18/navigation_layer_0/polygon = SubResource("NavigationPolygon_j63at")
-0:3/19 = 19
-0:3/19/navigation_layer_0/polygon = SubResource("NavigationPolygon_6njx3")
-0:3/20 = 20
-0:3/20/navigation_layer_0/polygon = SubResource("NavigationPolygon_0y2cb")
-1:3/next_alternative_id = 20
 1:3/0 = 0
-1:3/0/navigation_layer_0/polygon = SubResource("NavigationPolygon_3amdw")
-1:3/2 = 2
-1:3/2/navigation_layer_0/polygon = SubResource("NavigationPolygon_aam5o")
-1:3/3 = 3
-1:3/3/navigation_layer_0/polygon = SubResource("NavigationPolygon_p2wc2")
-1:3/4 = 4
-1:3/4/navigation_layer_0/polygon = SubResource("NavigationPolygon_jbas8")
-1:3/5 = 5
-1:3/5/navigation_layer_0/polygon = SubResource("NavigationPolygon_p4j74")
-1:3/6 = 6
-1:3/6/navigation_layer_0/polygon = SubResource("NavigationPolygon_hiice")
-1:3/7 = 7
-1:3/7/navigation_layer_0/polygon = SubResource("NavigationPolygon_1xcnr")
-1:3/8 = 8
-1:3/8/navigation_layer_0/polygon = SubResource("NavigationPolygon_ow1sv")
-1:3/9 = 9
-1:3/9/navigation_layer_0/polygon = SubResource("NavigationPolygon_75buv")
-1:3/10 = 10
-1:3/10/navigation_layer_0/polygon = SubResource("NavigationPolygon_c2iwn")
-1:3/11 = 11
-1:3/11/navigation_layer_0/polygon = SubResource("NavigationPolygon_3pt4j")
-1:3/12 = 12
-1:3/12/navigation_layer_0/polygon = SubResource("NavigationPolygon_7y4ci")
-1:3/13 = 13
-1:3/13/navigation_layer_0/polygon = SubResource("NavigationPolygon_mxd2g")
-1:3/14 = 14
-1:3/14/navigation_layer_0/polygon = SubResource("NavigationPolygon_0sxm5")
-1:3/16 = 16
-1:3/16/navigation_layer_0/polygon = SubResource("NavigationPolygon_hspdg")
-1:3/17 = 17
-1:3/17/navigation_layer_0/polygon = SubResource("NavigationPolygon_j63at")
-1:3/18 = 18
-1:3/18/navigation_layer_0/polygon = SubResource("NavigationPolygon_6njx3")
-1:3/19 = 19
-1:3/19/navigation_layer_0/polygon = SubResource("NavigationPolygon_0y2cb")
-2:3/next_alternative_id = 20
 2:3/0 = 0
-2:3/0/navigation_layer_0/polygon = SubResource("NavigationPolygon_3amdw")
-2:3/2 = 2
-2:3/2/navigation_layer_0/polygon = SubResource("NavigationPolygon_t372l")
-2:3/3 = 3
-2:3/3/navigation_layer_0/polygon = SubResource("NavigationPolygon_xw8bv")
-2:3/4 = 4
-2:3/4/navigation_layer_0/polygon = SubResource("NavigationPolygon_jbas8")
-2:3/5 = 5
-2:3/5/navigation_layer_0/polygon = SubResource("NavigationPolygon_p4j74")
-2:3/6 = 6
-2:3/6/navigation_layer_0/polygon = SubResource("NavigationPolygon_hiice")
-2:3/7 = 7
-2:3/7/navigation_layer_0/polygon = SubResource("NavigationPolygon_1xcnr")
-2:3/8 = 8
-2:3/8/navigation_layer_0/polygon = SubResource("NavigationPolygon_ow1sv")
-2:3/9 = 9
-2:3/9/navigation_layer_0/polygon = SubResource("NavigationPolygon_75buv")
-2:3/10 = 10
-2:3/10/navigation_layer_0/polygon = SubResource("NavigationPolygon_c2iwn")
-2:3/11 = 11
-2:3/11/navigation_layer_0/polygon = SubResource("NavigationPolygon_nyb1q")
-2:3/12 = 12
-2:3/12/navigation_layer_0/polygon = SubResource("NavigationPolygon_7y4ci")
-2:3/13 = 13
-2:3/13/navigation_layer_0/polygon = SubResource("NavigationPolygon_mxd2g")
-2:3/14 = 14
-2:3/14/navigation_layer_0/polygon = SubResource("NavigationPolygon_0sxm5")
-2:3/16 = 16
-2:3/16/navigation_layer_0/polygon = SubResource("NavigationPolygon_hspdg")
-2:3/17 = 17
-2:3/17/navigation_layer_0/polygon = SubResource("NavigationPolygon_wimqa")
-2:3/18 = 18
-2:3/18/navigation_layer_0/polygon = SubResource("NavigationPolygon_6njx3")
-2:3/19 = 19
-2:3/19/navigation_layer_0/polygon = SubResource("NavigationPolygon_0y2cb")
-3:3/next_alternative_id = 20
 3:3/0 = 0
-3:3/0/navigation_layer_0/polygon = SubResource("NavigationPolygon_3amdw")
-3:3/2 = 2
-3:3/2/navigation_layer_0/polygon = SubResource("NavigationPolygon_t372l")
-3:3/3 = 3
-3:3/3/navigation_layer_0/polygon = SubResource("NavigationPolygon_xw8bv")
-3:3/4 = 4
-3:3/4/navigation_layer_0/polygon = SubResource("NavigationPolygon_jbas8")
-3:3/5 = 5
-3:3/5/navigation_layer_0/polygon = SubResource("NavigationPolygon_p4j74")
-3:3/6 = 6
-3:3/6/navigation_layer_0/polygon = SubResource("NavigationPolygon_hiice")
-3:3/7 = 7
-3:3/7/navigation_layer_0/polygon = SubResource("NavigationPolygon_1xcnr")
-3:3/8 = 8
-3:3/8/navigation_layer_0/polygon = SubResource("NavigationPolygon_ow1sv")
-3:3/9 = 9
-3:3/9/navigation_layer_0/polygon = SubResource("NavigationPolygon_75buv")
-3:3/10 = 10
-3:3/10/navigation_layer_0/polygon = SubResource("NavigationPolygon_c2iwn")
-3:3/11 = 11
-3:3/11/navigation_layer_0/polygon = SubResource("NavigationPolygon_nyb1q")
-3:3/12 = 12
-3:3/12/navigation_layer_0/polygon = SubResource("NavigationPolygon_7y4ci")
-3:3/13 = 13
-3:3/13/navigation_layer_0/polygon = SubResource("NavigationPolygon_uctnp")
-3:3/14 = 14
-3:3/14/navigation_layer_0/polygon = SubResource("NavigationPolygon_0sxm5")
-3:3/16 = 16
-3:3/16/navigation_layer_0/polygon = SubResource("NavigationPolygon_hspdg")
-3:3/17 = 17
-3:3/17/navigation_layer_0/polygon = SubResource("NavigationPolygon_wimqa")
-3:3/18 = 18
-3:3/18/navigation_layer_0/polygon = SubResource("NavigationPolygon_m37ut")
-3:3/19 = 19
-3:3/19/navigation_layer_0/polygon = SubResource("NavigationPolygon_yoaul")
 
 [sub_resource type="TileSet" id="TileSet_ow1sv"]
-navigation_layer_0/layers = 1
 sources/0 = SubResource("TileSetAtlasSource_1xcnr")
 pattern_0 = SubResource("TileMapPattern_3amdw")
 pattern_1 = SubResource("TileMapPattern_1xcnr")
@@ -783,35 +211,35 @@ tile_data = PackedInt32Array(0, 196608, 805306371, 65536, 196608, 268435458, 131
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_75buv"]
 texture = ExtResource("3_3amdw")
 0:0/0 = 0
-0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-1, 8, -8, 8, -8, 1, -1, 1)
+0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(1.6, 0, 1.6, 8, -8, 8, -8, 0)
 1:0/0 = 0
-1:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(1, -8, 8, -8, 8, 8, 1, 8)
+1:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(8, -8, 8, 8, -1.6, 8, -1.6, -8)
 2:0/0 = 0
 2:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(1.6, -8, 1.6, -3.2, 4.8, 1.6, 8, -4.8, 8, 8, -8, 8, -8, -8)
 3:0/0 = 0
-3:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(8, 8, -8, 8, -8, 1, 8, 1)
+3:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-1.6, 0, 4.8, 0, 8, 0, 8, 8, -8, 8, -8, 0)
 0:1/0 = 0
 0:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(0, -8, 0, -4.8, 0, -3.2, 3.2, -3.2, 4.8, 0, 8, 0, 8, 8, 0, 8, 0, 3.2, -1.6, 1.6, -3.2, 1.6, -3.2, 0, -8, -1.6, -8, -8)
 1:1/0 = 0
-1:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(1, -8, 8, -8, 8, 8, -8, 8, -8, 1, 1, 1)
+1:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(0, -8, 8, -8, 8, 8, -8, 8, -8, 0, -3.2, 0, -1.6, -1.6, -1.6, -3.2, 0, -3.2)
 2:1/0 = 0
 2:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(8, -8, 8, 8, -8, 8, -8, -8)
 3:1/0 = 0
-3:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, -1, -2, -1, -2, 8, -8, 8)
+3:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(8, -8, 8, -1.6, 4.8, -1.6, 3.2, 0, 1.6, 1.6, 0, 1.6, 0, 4.8, 0, 8, -8, 8, -8, -8)
 0:2/0 = 0
-0:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(8, -1, 1, -1, 1, -8, 8, -8)
+0:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(8, -8, 8, 0, 6.4, 0, 4.8, 1.6, 1.6, 1.6, 0, 0, 0, -6.4, -1.6, -6.4, -1.6, -8)
 1:2/0 = 0
-1:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, -1, -8, -1)
+1:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(8, -8, 8, 0, -8, 0, -8, -8)
 2:2/0 = 0
-2:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, 0, 8, 0, -1, -8, -1)
+2:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(8, -8, 8, 8, -1, 8, -1, 1, -5, 1, -8, 1, -8, -8)
 3:2/0 = 0
-3:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, -2, -8, -2, 8, -8, 8)
+3:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(0, -8, 0, -1.06021, 0, 1, 1, 3, 0, 8, -8, 8, -8, -8)
 1:3/0 = 0
-1:3/0/physics_layer_0/polygon_0/points = PackedVector2Array(-3, 1, 8, 1, 8, 8, -3, 8)
+1:3/0/physics_layer_0/polygon_0/points = PackedVector2Array(8, 0, 8, 8, -4, 8, -4, 0)
 2:3/0 = 0
 2:3/0/physics_layer_0/polygon_0/points = PackedVector2Array(8, -8, 8, 0, 6, 1, 0, 2, 0, 8, -8, 8, -8, 0, -4, 0.0286541, -4, -2, -2, -5, 0, -8)
 3:3/0 = 0
-3:3/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, -2, -8, -2, -1, -8, -1)
+3:3/0/physics_layer_0/polygon_0/points = PackedVector2Array(-5, 0, -8, 1, -8, -8, 0, -8, -2, -1)
 
 [sub_resource type="TileSet" id="TileSet_c2iwn"]
 physics_layer_0/collision_layer = 2
@@ -846,6 +274,7 @@ position = Vector2(-2, 171)
 scale = Vector2(1.25, 1.25)
 
 [node name="Map (for test)" type="Node2D" parent="."]
+
 visible = false
 
 [node name="movement targets" type="Node" parent="."]
@@ -873,3 +302,862 @@ position = Vector2(-3, -54)
 movement_target = ExtResource("6_1xcnr")
 tile_map = NodePath("../../tanah")
 chasing_target = NodePath("../../Player")
+
+
+[node name="coin" type="Node" parent="."]
+
+[node name="Pallet" parent="coin" instance=ExtResource("7_pallet")]
+position = Vector2(-174, 76)
+scale = Vector2(0.2, 0.2)
+
+[node name="Pallet2" parent="coin" instance=ExtResource("7_pallet")]
+position = Vector2(-174, 109)
+scale = Vector2(0.2, 0.2)
+
+[node name="Pallet3" parent="coin" instance=ExtResource("7_pallet")]
+position = Vector2(-174, 142)
+scale = Vector2(0.2, 0.2)
+
+[node name="Pallet4" parent="coin" instance=ExtResource("7_pallet")]
+position = Vector2(-174, 175)
+scale = Vector2(0.2, 0.2)
+
+[node name="Pallet5" parent="coin" instance=ExtResource("7_pallet")]
+position = Vector2(-174, -54)
+scale = Vector2(0.2, 0.2)
+
+[node name="Pallet6" parent="coin" instance=ExtResource("7_pallet")]
+position = Vector2(-174, -21)
+scale = Vector2(0.2, 0.2)
+
+[node name="Pallet97" parent="coin" instance=ExtResource("7_pallet")]
+position = Vector2(-144, -28)
+scale = Vector2(0.2, 0.2)
+
+[node name="Pallet102" parent="coin" instance=ExtResource("7_pallet")]
+position = Vector2(144, -30)
+scale = Vector2(0.2, 0.2)
+
+[node name="Pallet7" parent="coin" instance=ExtResource("7_pallet")]
+position = Vector2(-174, 12)
+scale = Vector2(0.2, 0.2)
+
+[node name="Pallet8" parent="coin" instance=ExtResource("7_pallet")]
+position = Vector2(-174, 45)
+scale = Vector2(0.2, 0.2)
+
+[node name="Pallet9" parent="coin" instance=ExtResource("7_pallet")]
+position = Vector2(-174, -181)
+scale = Vector2(0.2, 0.2)
+
+[node name="Pallet10" parent="coin" instance=ExtResource("7_pallet")]
+position = Vector2(-174, -148)
+scale = Vector2(0.2, 0.2)
+
+[node name="Pallet11" parent="coin" instance=ExtResource("7_pallet")]
+position = Vector2(-174, -115)
+scale = Vector2(0.2, 0.2)
+
+[node name="Pallet12" parent="coin" instance=ExtResource("7_pallet")]
+position = Vector2(-174, -82)
+scale = Vector2(0.2, 0.2)
+
+[node name="Pallet13" parent="coin" instance=ExtResource("7_pallet")]
+position = Vector2(-174, -309)
+scale = Vector2(0.2, 0.2)
+
+[node name="Pallet14" parent="coin" instance=ExtResource("7_pallet")]
+position = Vector2(-174, -276)
+scale = Vector2(0.2, 0.2)
+
+[node name="Pallet15" parent="coin" instance=ExtResource("7_pallet")]
+position = Vector2(-174, -243)
+scale = Vector2(0.2, 0.2)
+
+[node name="Pallet16" parent="coin" instance=ExtResource("7_pallet")]
+position = Vector2(-174, -210)
+scale = Vector2(0.2, 0.2)
+
+[node name="Pallet18" parent="coin" instance=ExtResource("7_pallet")]
+position = Vector2(-174, -347)
+scale = Vector2(0.2, 0.2)
+
+[node name="Pallet17" parent="coin" instance=ExtResource("7_pallet")]
+position = Vector2(-304, -312)
+scale = Vector2(0.2, 0.2)
+
+[node name="Pallet26" parent="coin" instance=ExtResource("7_pallet")]
+position = Vector2(-303, -346)
+scale = Vector2(0.2, 0.2)
+
+[node name="Pallet19" parent="coin" instance=ExtResource("7_pallet")]
+position = Vector2(-304, -279)
+scale = Vector2(0.2, 0.2)
+
+[node name="Pallet20" parent="coin" instance=ExtResource("7_pallet")]
+position = Vector2(-304, -246)
+scale = Vector2(0.2, 0.2)
+
+[node name="Pallet21" parent="coin" instance=ExtResource("7_pallet")]
+position = Vector2(-304, -213)
+scale = Vector2(0.2, 0.2)
+
+[node name="Pallet22" parent="coin" instance=ExtResource("7_pallet")]
+position = Vector2(-304, -176)
+scale = Vector2(0.2, 0.2)
+
+[node name="Pallet23" parent="coin" instance=ExtResource("7_pallet")]
+position = Vector2(-273, -174)
+scale = Vector2(0.2, 0.2)
+
+[node name="Pallet24" parent="coin" instance=ExtResource("7_pallet")]
+position = Vector2(-243, -174)
+scale = Vector2(0.2, 0.2)
+
+[node name="Pallet25" parent="coin" instance=ExtResource("7_pallet")]
+position = Vector2(-213, -175)
+scale = Vector2(0.2, 0.2)
+
+[node name="Pallet27" parent="coin" instance=ExtResource("7_pallet")]
+position = Vector2(-271, -254)
+scale = Vector2(0.2, 0.2)
+
+[node name="Pallet28" parent="coin" instance=ExtResource("7_pallet")]
+position = Vector2(-240, -253)
+scale = Vector2(0.2, 0.2)
+
+[node name="Pallet29" parent="coin" instance=ExtResource("7_pallet")]
+position = Vector2(-210, -254)
+scale = Vector2(0.2, 0.2)
+
+[node name="Pallet30" parent="coin" instance=ExtResource("7_pallet")]
+position = Vector2(-270, -348)
+scale = Vector2(0.2, 0.2)
+
+[node name="Pallet31" parent="coin" instance=ExtResource("7_pallet")]
+position = Vector2(-240, -348)
+scale = Vector2(0.2, 0.2)
+
+[node name="Pallet32" parent="coin" instance=ExtResource("7_pallet")]
+position = Vector2(-210, -349)
+scale = Vector2(0.2, 0.2)
+
+[node name="Pallet33" parent="coin" instance=ExtResource("7_pallet")]
+position = Vector2(-135, -348)
+scale = Vector2(0.2, 0.2)
+
+[node name="Pallet34" parent="coin" instance=ExtResource("7_pallet")]
+position = Vector2(-98, -349)
+scale = Vector2(0.2, 0.2)
+
+[node name="Pallet35" parent="coin" instance=ExtResource("7_pallet")]
+position = Vector2(-65, -349)
+scale = Vector2(0.2, 0.2)
+
+[node name="Pallet37" parent="coin" instance=ExtResource("7_pallet")]
+position = Vector2(-33, -349)
+scale = Vector2(0.2, 0.2)
+
+[node name="Pallet36" parent="coin" instance=ExtResource("7_pallet")]
+position = Vector2(-33, -315)
+scale = Vector2(0.2, 0.2)
+
+[node name="Pallet38" parent="coin" instance=ExtResource("7_pallet")]
+position = Vector2(-33, -282)
+scale = Vector2(0.2, 0.2)
+
+[node name="Pallet39" parent="coin" instance=ExtResource("7_pallet")]
+position = Vector2(-34, -253)
+scale = Vector2(0.2, 0.2)
+
+[node name="Pallet40" parent="coin" instance=ExtResource("7_pallet")]
+position = Vector2(-91, -252)
+scale = Vector2(0.2, 0.2)
+
+[node name="Pallet41" parent="coin" instance=ExtResource("7_pallet")]
+position = Vector2(-65, -252)
+scale = Vector2(0.2, 0.2)
+
+[node name="Pallet42" parent="coin" instance=ExtResource("7_pallet")]
+position = Vector2(-147, -253)
+scale = Vector2(0.2, 0.2)
+
+[node name="Pallet43" parent="coin" instance=ExtResource("7_pallet")]
+position = Vector2(-116, -252)
+scale = Vector2(0.2, 0.2)
+
+[node name="Pallet44" parent="coin" instance=ExtResource("7_pallet")]
+position = Vector2(-116, -175)
+scale = Vector2(0.2, 0.2)
+
+[node name="Pallet45" parent="coin" instance=ExtResource("7_pallet")]
+position = Vector2(-116, -215)
+scale = Vector2(0.2, 0.2)
+
+[node name="Pallet46" parent="coin" instance=ExtResource("7_pallet")]
+position = Vector2(-86, -175)
+scale = Vector2(0.2, 0.2)
+
+[node name="Pallet47" parent="coin" instance=ExtResource("7_pallet")]
+position = Vector2(-56, -175)
+scale = Vector2(0.2, 0.2)
+
+[node name="Pallet48" parent="coin" instance=ExtResource("7_pallet")]
+position = Vector2(-26, -176)
+scale = Vector2(0.2, 0.2)
+
+[node name="Pallet49" parent="coin" instance=ExtResource("7_pallet")]
+position = Vector2(-32, -143)
+scale = Vector2(0.2, 0.2)
+
+[node name="Pallet50" parent="coin" instance=ExtResource("7_pallet")]
+position = Vector2(-32, -111)
+scale = Vector2(0.2, 0.2)
+
+[node name="Pallet68" parent="coin" instance=ExtResource("7_pallet")]
+position = Vector2(-3, -111)
+scale = Vector2(0.2, 0.2)
+
+[node name="Pallet51" parent="coin" instance=ExtResource("7_pallet")]
+position = Vector2(-113, -111)
+scale = Vector2(0.2, 0.2)
+
+[node name="Pallet73" parent="coin" instance=ExtResource("7_pallet")]
+position = Vector2(-87, -111)
+scale = Vector2(0.2, 0.2)
+
+[node name="Pallet52" parent="coin" instance=ExtResource("7_pallet")]
+position = Vector2(-61, -110)
+scale = Vector2(0.2, 0.2)
+
+[node name="Pallet53" parent="coin" instance=ExtResource("7_pallet")]
+position = Vector2(-113, 37)
+scale = Vector2(0.2, 0.2)
+
+[node name="Pallet54" parent="coin" instance=ExtResource("7_pallet")]
+position = Vector2(-81, 36)
+scale = Vector2(0.2, 0.2)
+
+[node name="Pallet55" parent="coin" instance=ExtResource("7_pallet")]
+position = Vector2(-52, 35)
+scale = Vector2(0.2, 0.2)
+
+[node name="Pallet56" parent="coin" instance=ExtResource("7_pallet")]
+position = Vector2(-22, 34)
+scale = Vector2(0.2, 0.2)
+
+[node name="Pallet57" parent="coin" instance=ExtResource("7_pallet")]
+position = Vector2(7, 35)
+scale = Vector2(0.2, 0.2)
+
+[node name="Pallet58" parent="coin" instance=ExtResource("7_pallet")]
+position = Vector2(37, 34)
+scale = Vector2(0.2, 0.2)
+
+[node name="Pallet59" parent="coin" instance=ExtResource("7_pallet")]
+position = Vector2(82, 33)
+scale = Vector2(0.2, 0.2)
+
+[node name="Pallet206" parent="coin" instance=ExtResource("7_pallet")]
+position = Vector2(60, 34)
+scale = Vector2(0.2, 0.2)
+
+[node name="Pallet60" parent="coin" instance=ExtResource("7_pallet")]
+position = Vector2(112, 41)
+scale = Vector2(0.2, 0.2)
+
+[node name="Pallet205" parent="coin" instance=ExtResource("7_pallet")]
+position = Vector2(112, 17)
+scale = Vector2(0.2, 0.2)
+
+[node name="Pallet61" parent="coin" instance=ExtResource("7_pallet")]
+position = Vector2(112, -75)
+scale = Vector2(0.2, 0.2)
+
+[node name="Pallet62" parent="coin" instance=ExtResource("7_pallet")]
+position = Vector2(112, -41)
+scale = Vector2(0.2, 0.2)
+
+[node name="Pallet63" parent="coin" instance=ExtResource("7_pallet")]
+position = Vector2(112, -8)
+scale = Vector2(0.2, 0.2)
+
+[node name="Pallet65" parent="coin" instance=ExtResource("7_pallet")]
+position = Vector2(113, -112)
+scale = Vector2(0.2, 0.2)
+
+[node name="Pallet64" parent="coin" instance=ExtResource("7_pallet")]
+position = Vector2(83, -112)
+scale = Vector2(0.2, 0.2)
+
+[node name="Pallet66" parent="coin" instance=ExtResource("7_pallet")]
+position = Vector2(24, -110)
+scale = Vector2(0.2, 0.2)
+
+[node name="Pallet67" parent="coin" instance=ExtResource("7_pallet")]
+position = Vector2(54, -111)
+scale = Vector2(0.2, 0.2)
+
+[node name="Pallet69" parent="coin" instance=ExtResource("7_pallet")]
+position = Vector2(-113, -50)
+scale = Vector2(0.2, 0.2)
+
+[node name="Pallet70" parent="coin" instance=ExtResource("7_pallet")]
+position = Vector2(-113, -78)
+scale = Vector2(0.2, 0.2)
+
+[node name="Pallet71" parent="coin" instance=ExtResource("7_pallet")]
+position = Vector2(-113, 7)
+scale = Vector2(0.2, 0.2)
+
+[node name="Pallet72" parent="coin" instance=ExtResource("7_pallet")]
+position = Vector2(-113, -21)
+scale = Vector2(0.2, 0.2)
+
+[node name="Pallet74" parent="coin" instance=ExtResource("7_pallet")]
+position = Vector2(34, -349)
+scale = Vector2(0.2, 0.2)
+
+[node name="Pallet75" parent="coin" instance=ExtResource("7_pallet")]
+position = Vector2(60, -349)
+scale = Vector2(0.2, 0.2)
+
+[node name="Pallet76" parent="coin" instance=ExtResource("7_pallet")]
+position = Vector2(86, -349)
+scale = Vector2(0.2, 0.2)
+
+[node name="Pallet77" parent="coin" instance=ExtResource("7_pallet")]
+position = Vector2(114, -350)
+scale = Vector2(0.2, 0.2)
+
+[node name="Pallet78" parent="coin" instance=ExtResource("7_pallet")]
+position = Vector2(140, -350)
+scale = Vector2(0.2, 0.2)
+
+[node name="Pallet79" parent="coin" instance=ExtResource("7_pallet")]
+position = Vector2(166, -350)
+scale = Vector2(0.2, 0.2)
+
+[node name="Pallet80" parent="coin" instance=ExtResource("7_pallet")]
+position = Vector2(192, -350)
+scale = Vector2(0.2, 0.2)
+
+[node name="Pallet81" parent="coin" instance=ExtResource("7_pallet")]
+position = Vector2(218, -350)
+scale = Vector2(0.2, 0.2)
+
+[node name="Pallet82" parent="coin" instance=ExtResource("7_pallet")]
+position = Vector2(244, -350)
+scale = Vector2(0.2, 0.2)
+
+[node name="Pallet83" parent="coin" instance=ExtResource("7_pallet")]
+position = Vector2(273, -350)
+scale = Vector2(0.2, 0.2)
+
+[node name="Pallet84" parent="coin" instance=ExtResource("7_pallet")]
+position = Vector2(306, -350)
+scale = Vector2(0.2, 0.2)
+
+[node name="Pallet85" parent="coin" instance=ExtResource("7_pallet")]
+position = Vector2(33, -318)
+scale = Vector2(0.2, 0.2)
+
+[node name="Pallet86" parent="coin" instance=ExtResource("7_pallet")]
+position = Vector2(33, -285)
+scale = Vector2(0.2, 0.2)
+
+[node name="Pallet87" parent="coin" instance=ExtResource("7_pallet")]
+position = Vector2(32, -256)
+scale = Vector2(0.2, 0.2)
+
+[node name="Pallet88" parent="coin" instance=ExtResource("7_pallet")]
+position = Vector2(-0.999996, -253)
+scale = Vector2(0.2, 0.2)
+
+[node name="Pallet89" parent="coin" instance=ExtResource("7_pallet")]
+position = Vector2(66, -253)
+scale = Vector2(0.2, 0.2)
+
+[node name="Pallet90" parent="coin" instance=ExtResource("7_pallet")]
+position = Vector2(96, -253)
+scale = Vector2(0.2, 0.2)
+
+[node name="Pallet91" parent="coin" instance=ExtResource("7_pallet")]
+position = Vector2(126, -253)
+scale = Vector2(0.2, 0.2)
+
+[node name="Pallet92" parent="coin" instance=ExtResource("7_pallet")]
+position = Vector2(156, -254)
+scale = Vector2(0.2, 0.2)
+
+[node name="Pallet93" parent="coin" instance=ExtResource("7_pallet")]
+position = Vector2(185, -255)
+scale = Vector2(0.2, 0.2)
+
+[node name="Pallet109" parent="coin" instance=ExtResource("7_pallet")]
+position = Vector2(176, -319)
+scale = Vector2(0.2, 0.2)
+
+[node name="Pallet110" parent="coin" instance=ExtResource("7_pallet")]
+position = Vector2(176, -287)
+scale = Vector2(0.2, 0.2)
+
+[node name="Pallet94" parent="coin" instance=ExtResource("7_pallet")]
+position = Vector2(214, -255)
+scale = Vector2(0.2, 0.2)
+
+[node name="Pallet95" parent="coin" instance=ExtResource("7_pallet")]
+position = Vector2(243, -255)
+scale = Vector2(0.2, 0.2)
+
+[node name="Pallet96" parent="coin" instance=ExtResource("7_pallet")]
+position = Vector2(273, -255)
+scale = Vector2(0.2, 0.2)
+
+[node name="Pallet98" parent="coin" instance=ExtResource("7_pallet")]
+position = Vector2(304, -255)
+scale = Vector2(0.2, 0.2)
+
+[node name="Pallet111" parent="coin" instance=ExtResource("7_pallet")]
+position = Vector2(305, -318)
+scale = Vector2(0.2, 0.2)
+
+[node name="Pallet207" parent="coin" instance=ExtResource("7_pallet")]
+position = Vector2(218, -172)
+scale = Vector2(0.2, 0.2)
+
+[node name="Pallet112" parent="coin" instance=ExtResource("7_pallet")]
+position = Vector2(305, -289)
+scale = Vector2(0.2, 0.2)
+
+[node name="Pallet211" parent="coin" instance=ExtResource("7_pallet")]
+position = Vector2(304, -226)
+scale = Vector2(0.2, 0.2)
+
+[node name="Pallet212" parent="coin" instance=ExtResource("7_pallet")]
+position = Vector2(304, -200)
+scale = Vector2(0.2, 0.2)
+
+[node name="Pallet99" parent="coin" instance=ExtResource("7_pallet")]
+position = Vector2(-3, -111)
+scale = Vector2(0.2, 0.2)
+
+[node name="Pallet100" parent="coin" instance=ExtResource("7_pallet")]
+position = Vector2(24, -110)
+scale = Vector2(0.2, 0.2)
+
+[node name="Pallet101" parent="coin" instance=ExtResource("7_pallet")]
+position = Vector2(54, -111)
+scale = Vector2(0.2, 0.2)
+
+[node name="Pallet103" parent="coin" instance=ExtResource("7_pallet")]
+position = Vector2(32, -142)
+scale = Vector2(0.2, 0.2)
+
+[node name="Pallet104" parent="coin" instance=ExtResource("7_pallet")]
+position = Vector2(32, -174)
+scale = Vector2(0.2, 0.2)
+
+[node name="Pallet105" parent="coin" instance=ExtResource("7_pallet")]
+position = Vector2(61, -174)
+scale = Vector2(0.2, 0.2)
+
+[node name="Pallet106" parent="coin" instance=ExtResource("7_pallet")]
+position = Vector2(91, -174)
+scale = Vector2(0.2, 0.2)
+
+[node name="Pallet107" parent="coin" instance=ExtResource("7_pallet")]
+position = Vector2(119, -174)
+scale = Vector2(0.2, 0.2)
+
+[node name="Pallet108" parent="coin" instance=ExtResource("7_pallet")]
+position = Vector2(119, -214)
+scale = Vector2(0.2, 0.2)
+
+[node name="Pallet113" parent="coin" instance=ExtResource("7_pallet")]
+position = Vector2(178, -187)
+scale = Vector2(0.2, 0.2)
+
+[node name="Pallet114" parent="coin" instance=ExtResource("7_pallet")]
+position = Vector2(178, -154)
+scale = Vector2(0.2, 0.2)
+
+[node name="Pallet115" parent="coin" instance=ExtResource("7_pallet")]
+position = Vector2(178, -121)
+scale = Vector2(0.2, 0.2)
+
+[node name="Pallet116" parent="coin" instance=ExtResource("7_pallet")]
+position = Vector2(178, -88)
+scale = Vector2(0.2, 0.2)
+
+[node name="Pallet117" parent="coin" instance=ExtResource("7_pallet")]
+position = Vector2(178, -218)
+scale = Vector2(0.2, 0.2)
+
+[node name="Pallet118" parent="coin" instance=ExtResource("7_pallet")]
+position = Vector2(177, -21)
+scale = Vector2(0.2, 0.2)
+
+[node name="Pallet119" parent="coin" instance=ExtResource("7_pallet")]
+position = Vector2(177, 12)
+scale = Vector2(0.2, 0.2)
+
+[node name="Pallet120" parent="coin" instance=ExtResource("7_pallet")]
+position = Vector2(177, 45)
+scale = Vector2(0.2, 0.2)
+
+[node name="Pallet121" parent="coin" instance=ExtResource("7_pallet")]
+position = Vector2(177, 78)
+scale = Vector2(0.2, 0.2)
+
+[node name="Pallet122" parent="coin" instance=ExtResource("7_pallet")]
+position = Vector2(177, -52)
+scale = Vector2(0.2, 0.2)
+
+[node name="Pallet123" parent="coin" instance=ExtResource("7_pallet")]
+position = Vector2(177, 164)
+scale = Vector2(0.2, 0.2)
+
+[node name="Pallet124" parent="coin" instance=ExtResource("7_pallet")]
+position = Vector2(177, 197)
+scale = Vector2(0.2, 0.2)
+
+[node name="Pallet125" parent="coin" instance=ExtResource("7_pallet")]
+position = Vector2(177, 230)
+scale = Vector2(0.2, 0.2)
+
+[node name="Pallet126" parent="coin" instance=ExtResource("7_pallet")]
+position = Vector2(177, 263)
+scale = Vector2(0.2, 0.2)
+
+[node name="Pallet141" parent="coin" instance=ExtResource("7_pallet")]
+position = Vector2(204, 263)
+scale = Vector2(0.2, 0.2)
+
+[node name="Pallet142" parent="coin" instance=ExtResource("7_pallet")]
+position = Vector2(229, 263)
+scale = Vector2(0.2, 0.2)
+
+[node name="Pallet127" parent="coin" instance=ExtResource("7_pallet")]
+position = Vector2(177, 133)
+scale = Vector2(0.2, 0.2)
+
+[node name="Pallet128" parent="coin" instance=ExtResource("7_pallet")]
+position = Vector2(177, 107)
+scale = Vector2(0.2, 0.2)
+
+[node name="Pallet129" parent="coin" instance=ExtResource("7_pallet")]
+position = Vector2(208, 107)
+scale = Vector2(0.2, 0.2)
+
+[node name="Pallet130" parent="coin" instance=ExtResource("7_pallet")]
+position = Vector2(235, 107)
+scale = Vector2(0.2, 0.2)
+
+[node name="Pallet131" parent="coin" instance=ExtResource("7_pallet")]
+position = Vector2(261, 107)
+scale = Vector2(0.2, 0.2)
+
+[node name="Pallet132" parent="coin" instance=ExtResource("7_pallet")]
+position = Vector2(287, 107)
+scale = Vector2(0.2, 0.2)
+
+[node name="Pallet133" parent="coin" instance=ExtResource("7_pallet")]
+position = Vector2(312, 107)
+scale = Vector2(0.2, 0.2)
+
+[node name="Pallet134" parent="coin" instance=ExtResource("7_pallet")]
+position = Vector2(312, 178)
+scale = Vector2(0.2, 0.2)
+
+[node name="Pallet136" parent="coin" instance=ExtResource("7_pallet")]
+position = Vector2(285, 179)
+scale = Vector2(0.2, 0.2)
+
+[node name="Pallet137" parent="coin" instance=ExtResource("7_pallet")]
+position = Vector2(256, 179)
+scale = Vector2(0.2, 0.2)
+
+[node name="Pallet138" parent="coin" instance=ExtResource("7_pallet")]
+position = Vector2(256, 208)
+scale = Vector2(0.2, 0.2)
+
+[node name="Pallet139" parent="coin" instance=ExtResource("7_pallet")]
+position = Vector2(256, 235)
+scale = Vector2(0.2, 0.2)
+
+[node name="Pallet140" parent="coin" instance=ExtResource("7_pallet")]
+position = Vector2(256, 263)
+scale = Vector2(0.2, 0.2)
+
+[node name="Pallet143" parent="coin" instance=ExtResource("7_pallet")]
+position = Vector2(282, 264)
+scale = Vector2(0.2, 0.2)
+
+[node name="Pallet144" parent="coin" instance=ExtResource("7_pallet")]
+position = Vector2(307, 264)
+scale = Vector2(0.2, 0.2)
+
+[node name="Pallet145" parent="coin" instance=ExtResource("7_pallet")]
+position = Vector2(307, 296)
+scale = Vector2(0.2, 0.2)
+
+[node name="Pallet146" parent="coin" instance=ExtResource("7_pallet")]
+position = Vector2(307, 325)
+scale = Vector2(0.2, 0.2)
+
+[node name="Pallet135" parent="coin" instance=ExtResource("7_pallet")]
+position = Vector2(312, 142)
+scale = Vector2(0.2, 0.2)
+
+[node name="Pallet147" parent="coin" instance=ExtResource("7_pallet")]
+position = Vector2(143, 325)
+scale = Vector2(0.2, 0.2)
+
+[node name="Pallet148" parent="coin" instance=ExtResource("7_pallet")]
+position = Vector2(174, 325)
+scale = Vector2(0.2, 0.2)
+
+[node name="Pallet149" parent="coin" instance=ExtResource("7_pallet")]
+position = Vector2(201, 325)
+scale = Vector2(0.2, 0.2)
+
+[node name="Pallet150" parent="coin" instance=ExtResource("7_pallet")]
+position = Vector2(227, 325)
+scale = Vector2(0.2, 0.2)
+
+[node name="Pallet151" parent="coin" instance=ExtResource("7_pallet")]
+position = Vector2(253, 325)
+scale = Vector2(0.2, 0.2)
+
+[node name="Pallet152" parent="coin" instance=ExtResource("7_pallet")]
+position = Vector2(278, 325)
+scale = Vector2(0.2, 0.2)
+
+[node name="Pallet153" parent="coin" instance=ExtResource("7_pallet")]
+position = Vector2(-19, 326)
+scale = Vector2(0.2, 0.2)
+
+[node name="Pallet154" parent="coin" instance=ExtResource("7_pallet")]
+position = Vector2(12, 326)
+scale = Vector2(0.2, 0.2)
+
+[node name="Pallet155" parent="coin" instance=ExtResource("7_pallet")]
+position = Vector2(39, 326)
+scale = Vector2(0.2, 0.2)
+
+[node name="Pallet156" parent="coin" instance=ExtResource("7_pallet")]
+position = Vector2(65, 326)
+scale = Vector2(0.2, 0.2)
+
+[node name="Pallet157" parent="coin" instance=ExtResource("7_pallet")]
+position = Vector2(91, 326)
+scale = Vector2(0.2, 0.2)
+
+[node name="Pallet158" parent="coin" instance=ExtResource("7_pallet")]
+position = Vector2(116, 326)
+scale = Vector2(0.2, 0.2)
+
+[node name="Pallet159" parent="coin" instance=ExtResource("7_pallet")]
+position = Vector2(-182, 326)
+scale = Vector2(0.2, 0.2)
+
+[node name="Pallet160" parent="coin" instance=ExtResource("7_pallet")]
+position = Vector2(-151, 326)
+scale = Vector2(0.2, 0.2)
+
+[node name="Pallet161" parent="coin" instance=ExtResource("7_pallet")]
+position = Vector2(-124, 326)
+scale = Vector2(0.2, 0.2)
+
+[node name="Pallet162" parent="coin" instance=ExtResource("7_pallet")]
+position = Vector2(-98, 326)
+scale = Vector2(0.2, 0.2)
+
+[node name="Pallet163" parent="coin" instance=ExtResource("7_pallet")]
+position = Vector2(-72, 326)
+scale = Vector2(0.2, 0.2)
+
+[node name="Pallet164" parent="coin" instance=ExtResource("7_pallet")]
+position = Vector2(-47, 326)
+scale = Vector2(0.2, 0.2)
+
+[node name="Pallet166" parent="coin" instance=ExtResource("7_pallet")]
+position = Vector2(-306, 326)
+scale = Vector2(0.2, 0.2)
+
+[node name="Pallet171" parent="coin" instance=ExtResource("7_pallet")]
+position = Vector2(-307, 293)
+scale = Vector2(0.2, 0.2)
+
+[node name="Pallet172" parent="coin" instance=ExtResource("7_pallet")]
+position = Vector2(-307, 261)
+scale = Vector2(0.2, 0.2)
+
+[node name="Pallet173" parent="coin" instance=ExtResource("7_pallet")]
+position = Vector2(-279, 261)
+scale = Vector2(0.2, 0.2)
+
+[node name="Pallet174" parent="coin" instance=ExtResource("7_pallet")]
+position = Vector2(-251, 261)
+scale = Vector2(0.2, 0.2)
+
+[node name="Pallet167" parent="coin" instance=ExtResource("7_pallet")]
+position = Vector2(-286, 326)
+scale = Vector2(0.2, 0.2)
+
+[node name="Pallet168" parent="coin" instance=ExtResource("7_pallet")]
+position = Vector2(-260, 326)
+scale = Vector2(0.2, 0.2)
+
+[node name="Pallet169" parent="coin" instance=ExtResource("7_pallet")]
+position = Vector2(-234, 326)
+scale = Vector2(0.2, 0.2)
+
+[node name="Pallet170" parent="coin" instance=ExtResource("7_pallet")]
+position = Vector2(-209, 326)
+scale = Vector2(0.2, 0.2)
+
+[node name="Pallet175" parent="coin" instance=ExtResource("7_pallet")]
+position = Vector2(-305, 109)
+scale = Vector2(0.2, 0.2)
+
+[node name="Pallet179" parent="coin" instance=ExtResource("7_pallet")]
+position = Vector2(-306, 143)
+scale = Vector2(0.2, 0.2)
+
+[node name="Pallet180" parent="coin" instance=ExtResource("7_pallet")]
+position = Vector2(-306, 180)
+scale = Vector2(0.2, 0.2)
+
+[node name="Pallet182" parent="coin" instance=ExtResource("7_pallet")]
+position = Vector2(-279, 182)
+scale = Vector2(0.2, 0.2)
+
+[node name="Pallet183" parent="coin" instance=ExtResource("7_pallet")]
+position = Vector2(-251, 181)
+scale = Vector2(0.2, 0.2)
+
+[node name="Pallet184" parent="coin" instance=ExtResource("7_pallet")]
+position = Vector2(-251, 220)
+scale = Vector2(0.2, 0.2)
+
+[node name="Pallet176" parent="coin" instance=ExtResource("7_pallet")]
+position = Vector2(-277, 109)
+scale = Vector2(0.2, 0.2)
+
+[node name="Pallet177" parent="coin" instance=ExtResource("7_pallet")]
+position = Vector2(-249, 109)
+scale = Vector2(0.2, 0.2)
+
+[node name="Pallet178" parent="coin" instance=ExtResource("7_pallet")]
+position = Vector2(-220, 108)
+scale = Vector2(0.2, 0.2)
+
+[node name="Pallet181" parent="coin" instance=ExtResource("7_pallet")]
+position = Vector2(-231, 261)
+scale = Vector2(0.2, 0.2)
+
+[node name="Pallet185" parent="coin" instance=ExtResource("7_pallet")]
+position = Vector2(-203, 261)
+scale = Vector2(0.2, 0.2)
+
+[node name="Pallet186" parent="coin" instance=ExtResource("7_pallet")]
+position = Vector2(-175, 261)
+scale = Vector2(0.2, 0.2)
+
+[node name="Pallet187" parent="coin" instance=ExtResource("7_pallet")]
+position = Vector2(-175, 233)
+scale = Vector2(0.2, 0.2)
+
+[node name="Pallet188" parent="coin" instance=ExtResource("7_pallet")]
+position = Vector2(-175, 204)
+scale = Vector2(0.2, 0.2)
+
+[node name="Pallet189" parent="coin" instance=ExtResource("7_pallet")]
+position = Vector2(-307, 261)
+scale = Vector2(0.2, 0.2)
+
+[node name="Pallet190" parent="coin" instance=ExtResource("7_pallet")]
+position = Vector2(-279, 261)
+scale = Vector2(0.2, 0.2)
+
+[node name="Pallet191" parent="coin" instance=ExtResource("7_pallet")]
+position = Vector2(-251, 261)
+scale = Vector2(0.2, 0.2)
+
+[node name="Pallet165" parent="coin" instance=ExtResource("7_pallet")]
+position = Vector2(-112, 105)
+scale = Vector2(0.2, 0.2)
+
+[node name="Pallet204" parent="coin" instance=ExtResource("7_pallet")]
+position = Vector2(-144, 106)
+scale = Vector2(0.2, 0.2)
+
+[node name="Pallet193" parent="coin" instance=ExtResource("7_pallet")]
+position = Vector2(-83, 105)
+scale = Vector2(0.2, 0.2)
+
+[node name="Pallet194" parent="coin" instance=ExtResource("7_pallet")]
+position = Vector2(-57, 106)
+scale = Vector2(0.2, 0.2)
+
+[node name="Pallet195" parent="coin" instance=ExtResource("7_pallet")]
+position = Vector2(-29, 106)
+scale = Vector2(0.2, 0.2)
+
+[node name="Pallet196" parent="coin" instance=ExtResource("7_pallet")]
+position = Vector2(-29, 137)
+scale = Vector2(0.2, 0.2)
+
+[node name="Pallet192" parent="coin" instance=ExtResource("7_pallet")]
+position = Vector2(-113, 70)
+scale = Vector2(0.2, 0.2)
+
+[node name="Pallet197" parent="coin" instance=ExtResource("7_pallet")]
+position = Vector2(32, 109)
+scale = Vector2(0.2, 0.2)
+
+[node name="Pallet199" parent="coin" instance=ExtResource("7_pallet")]
+position = Vector2(61, 108)
+scale = Vector2(0.2, 0.2)
+
+[node name="Pallet200" parent="coin" instance=ExtResource("7_pallet")]
+position = Vector2(86, 107)
+scale = Vector2(0.2, 0.2)
+
+[node name="Pallet201" parent="coin" instance=ExtResource("7_pallet")]
+position = Vector2(112, 107)
+scale = Vector2(0.2, 0.2)
+
+[node name="Pallet202" parent="coin" instance=ExtResource("7_pallet")]
+position = Vector2(112, 72)
+scale = Vector2(0.2, 0.2)
+
+[node name="Pallet203" parent="coin" instance=ExtResource("7_pallet")]
+position = Vector2(144, 107)
+scale = Vector2(0.2, 0.2)
+
+[node name="Pallet198" parent="coin" instance=ExtResource("7_pallet")]
+position = Vector2(32, 140)
+scale = Vector2(0.2, 0.2)
+
+[node name="Pallet208" parent="coin" instance=ExtResource("7_pallet")]
+position = Vector2(247, -172)
+scale = Vector2(0.2, 0.2)
+
+[node name="Pallet209" parent="coin" instance=ExtResource("7_pallet")]
+position = Vector2(275, -172)
+scale = Vector2(0.2, 0.2)
+
+[node name="Pallet210" parent="coin" instance=ExtResource("7_pallet")]
+position = Vector2(304, -172)
+scale = Vector2(0.2, 0.2)
+
+[node name="Pallet213" parent="coin" instance=ExtResource("7_pallet")]
+position = Vector2(268, 106)
+scale = Vector2(0.2, 0.2)
+
+[node name="Pallet214" parent="coin" instance=ExtResource("7_pallet")]
+position = Vector2(237, 106)
+scale = Vector2(0.2, 0.2)
