@@ -2,8 +2,13 @@ extends CharacterBody2D
 
 class_name Player
 
-@onready var animated_sprite_2d = $AnimatedSprite2D
 @onready var anim = $AnimatedSprite2D
+@onready var sprite_2d: Sprite2D = $Sprite2D
+@onready var shape_1: MeshInstance2D = $shape1
+@onready var shape_2: MeshInstance2D = $shape2
+@onready var shape_3: MeshInstance2D = $shape3
+@onready var shape_4: MeshInstance2D = $shape4
+
 #variabel
 var movement_direction = Vector2.ZERO
 
@@ -81,3 +86,17 @@ func get_input():
 			
 		elif dir == "Up":
 			anim.play("rat1")
+
+func show_ko_sprite():
+	sprite_2d.show()
+	shape_1.show()
+	shape_2.show()
+	shape_3.show()
+	shape_4.show()
+
+func die():
+	print("die")
+	anim.hide()
+	show_ko_sprite()
+	set_physics_process(false)
+	pass

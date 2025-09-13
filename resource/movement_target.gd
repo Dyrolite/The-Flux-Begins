@@ -1,3 +1,4 @@
+class_name MovementTarget
 extends Resource
 
 @export var scatter_target_paths : Array[NodePath]

@@ -1,28 +1,28 @@
-[gd_scene load_steps=5 format=3 uid="uid://dge3ro6mje5xe"]
+[gd_scene load_steps=5 format=3 uid="uid://cbac726ghjegf"]
 
-[ext_resource type="Texture2D" uid="uid://daek2psax7i8a" path="res://asset game/Mahasiswa.png" id="1_b7t5j"]
-[ext_resource type="Script" uid="uid://do5tv01mufx23" path="res://Scene/mahasiswa_1.gd" id="1_whwey"]
-[ext_resource type="LabelSettings" uid="uid://vhh4ws3n3mbd" path="res://Scene/poin_label.tres" id="3_xy5sy"]
+[ext_resource type="Script" uid="uid://do5tv01mufx23" path="res://Scene/mahasiswa_1.gd" id="1_g0akb"]
+[ext_resource type="Texture2D" uid="uid://dnxadp424b3dr" path="res://asset game/Ibu2.png" id="2_g0akb"]
+[ext_resource type="LabelSettings" uid="uid://vhh4ws3n3mbd" path="res://Scene/poin_label.tres" id="3_be28b"]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_whwey"]
+[sub_resource type="CircleShape2D" id="CircleShape2D_n6cwb"]
 radius = 13.0
 
-[node name="mahasiswa1" type="Area2D"]
-script = ExtResource("1_whwey")
+[node name="ibu ibu" type="Area2D"]
+script = ExtResource("1_g0akb")
 
 [node name="KejarSprite2D" type="Sprite2D" parent="."]
-texture = ExtResource("1_b7t5j")
+texture = ExtResource("2_g0akb")
 region_enabled = true
 region_rect = Rect2(32, 0, 32, 32)
 
 [node name="bungkamSprite2D2" type="Sprite2D" parent="."]
 visible = false
-texture = ExtResource("1_b7t5j")
+texture = ExtResource("2_g0akb")
 region_enabled = true
 region_rect = Rect2(0, 0, 32, 32)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-shape = SubResource("CircleShape2D_whwey")
+shape = SubResource("CircleShape2D_n6cwb")
 
 [node name="NavigationAgent2D" type="NavigationAgent2D" parent="."]
 
@@ -38,6 +38,8 @@ wait_time = 8.0
 one_shot = true
 
 [node name="AtHomeTimer" type="Timer" parent="."]
+wait_time = 8.0
+one_shot = true
 
 [node name="pointLabel" type="Label" parent="."]
 visible = false
@@ -46,7 +48,7 @@ offset_top = -36.0
 offset_right = 28.0
 offset_bottom = -5.0
 text = "200"
-label_settings = ExtResource("3_xy5sy")
+label_settings = ExtResource("3_be28b")
 horizontal_alignment = 1
 vertical_alignment = 1
 

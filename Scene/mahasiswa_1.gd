@@ -4,24 +4,35 @@ class_name Mahasiswa
 enum MahasiswaState {
 	SCATTER,
 	CHASE,
-	LARI
+	LARI,
+	TERKALAHKAN,
+	MULAI_DI_BASE
 }
 
 var current_scatter_index = 0
+var current_at_home_index = 0
 var moving = true
 var current_state: MahasiswaState
 
+@export var speed_terkalahkan = 240
 @export var speed = 120
 @export var movement_target : Resource
 @export var tile_map: mazeTilemap
 @export var chasing_target: Node2D
+@export var point_manager: PointManager
+@export var is_starting_at_home = false
 
-
+@onready var at_home_timer: Timer = $AtHomeTimer
 @onready var navigation_agent_2d = $NavigationAgent2D
 @onready var scatter_timer = $scatterTimer
 @onready var update_scatter_timer = $UpdateScatterTimer
 @onready var lari_timer: Timer = $LariTimer
+@onready var point_label: Label = $pointLabel
+@onready var kejar_sprite_2d: Sprite2D = $KejarSprite2D
+@onready var bungkam_sprite_2d_2: Sprite2D = $bungkamSprite2D2
+
 var scatter_target_nodes: Array[Node2D]
+var at_home_target_nodes: Array[Node2D]
 
 func _ready():
 	navigation_agent_2d.path_desired_distance = 4.0
@@ -42,6 +53,13 @@ func populate_target_nodes():
 		else:
 			print("PERINGATAN: Gagal menemukan node untuk path: ", path)
 			
+	for path in movement_target.at_home_target_paths:
+		var node = get_node_or_null(path)
+		if node:
+			at_home_target_nodes.append(node)
+		else:
+			print("PERINGATAN: Gagal menemukan node untuk at_home path: ", path)
+	
 	setup_navigation()
 
 func setup_navigation():
@@ -51,9 +69,16 @@ func setup_navigation():
 		print("Peta navigasi berhasil di-set.")
 	else:
 		print("ERROR: Peta navigasi tidak valid!")
+	if is_starting_at_home:
+		start_at_home()
+	else:
+		scatter()
 
-	# Memulai gerakan ke target pertama (indeks 0)
-	scatter()
+func start_at_home():
+	current_state = MahasiswaState.MULAI_DI_BASE
+	at_home_timer.start()
+	at_home_timer.timeout.connect(scatter)
+	navigation_agent_2d.target_position = at_home_target_nodes[current_at_home_index].position
 
 func _process(delta):
 	if navigation_agent_2d.is_navigation_finished():
@@ -64,11 +89,12 @@ func _process(delta):
 
 func move_mahasiswa(next_position: Vector2, delta: float):
 	var distance_to_next = global_position.distance_to(next_position)
+	var current_speed = speed_terkalahkan if current_state == MahasiswaState.TERKALAHKAN else speed
 	if distance_to_next < 0.1:
 		return
 
 	var direction = global_position.direction_to(next_position)
-	var travel_distance = speed * delta
+	var travel_distance = current_speed * delta
 	
 	if travel_distance > distance_to_next:
 		global_position = next_position
@@ -95,7 +121,15 @@ func on_position_reached():
 		print("--- Sampai di titik acak, mencari titik acak baru... (Timer masih berjalan)")
 		var empty_cell_position = tile_map.get_random_empty_cell_position()
 		navigation_agent_2d.target_position = empty_cell_position
-		
+	elif current_state == MahasiswaState.TERKALAHKAN:
+		start_chasing_tikus_after_terkalahkan()
+	elif current_state == MahasiswaState.MULAI_DI_BASE:
+		move_to_next_home_position()
+
+func move_to_next_home_position():
+	current_at_home_index = 1 if current_at_home_index == 0 else 0
+	navigation_agent_2d.target_position = at_home_target_nodes[current_at_home_index].position
+
 func chase_position_reached():
 	print("kill pacman")
 
@@ -104,8 +138,6 @@ func scatter_position_reached():
 	current_scatter_index = (current_scatter_index + 1) % scatter_target_nodes.size()
 	scatter()
 
-
-	
 func start_chasing_tikus():
 	if chasing_target == null:
 		print("no chasing target")
@@ -113,11 +145,8 @@ func start_chasing_tikus():
 	update_scatter_timer.start()
 	navigation_agent_2d.target_position = chasing_target.position
 
-
-
 func _on_scatter_timer_timeout() -> void:
 	start_chasing_tikus()
-
 
 func _on_update_scatter_timer_timeout() -> void:
 	navigation_agent_2d.target_position = chasing_target.position
@@ -138,3 +167,33 @@ func _on_lari_timer_timeout() -> void:
 	print("lari selesai")
 	start_chasing_tikus()
 	
+
+func get_eaten():
+	kejar_sprite_2d.hide()
+	bungkam_sprite_2d_2.show()
+	point_label.show()
+	await point_manager.pause_saat_kalahkan_mahasiswa()
+	point_label.hide()
+	lari_timer.stop()
+	current_state = MahasiswaState.TERKALAHKAN
+	navigation_agent_2d.target_position = at_home_target_nodes[0].position
+
+func start_chasing_tikus_after_terkalahkan():
+	start_chasing_tikus()
+	bungkam_sprite_2d_2.hide()
+	kejar_sprite_2d.show()
+
+func _on_body_entered(body: Node2D) -> void:
+	var player = body as Player
+	if current_state == MahasiswaState.LARI:
+		get_eaten()
+	elif current_state == MahasiswaState.CHASE || current_state == MahasiswaState.SCATTER:
+		set_collision_mask_value(1, false)
+		update_scatter_timer.stop()
+		player.die()
+		scatter_timer.wait_time = 600
+		scatter()
+
+
+func _on_at_home_timer_timeout() -> void:
+	pass # Replace with function body.

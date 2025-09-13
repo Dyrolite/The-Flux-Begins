@@ -1,0 +1,8 @@
+[gd_resource type="Resource" script_class="MovementTarget" load_steps=2 format=3 uid="uid://mxrvhh0ay8dv"]
+
+[ext_resource type="Script" uid="uid://wtso603rym82" path="res://resource/movement_target.gd" id="1_8n87t"]
+
+[resource]
+script = ExtResource("1_8n87t")
+scatter_target_paths = Array[NodePath]([NodePath("../../movements targets/bapak bapak/scatter/b1"), NodePath("../../movements targets/bapak bapak/scatter/b2"), NodePath("../../movements targets/bapak bapak/scatter/b3"), NodePath("../../movements targets/bapak bapak/scatter/b4")])
+at_home_target_paths = Array[NodePath]([NodePath("../../movements targets/bapak bapak/base/bottom"), NodePath("../../movements targets/bapak bapak/base/top")])

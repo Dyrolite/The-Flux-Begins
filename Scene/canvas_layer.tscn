@@ -1,9 +1,10 @@
-[gd_scene load_steps=4 format=3 uid="uid://br3w5sej4f2qy"]
+[gd_scene load_steps=5 format=3 uid="uid://br3w5sej4f2qy"]
 
 [ext_resource type="Script" uid="uid://qpjl1ww8kpqh" path="res://Scene/UI.gd" id="1_ml06h"]
+[ext_resource type="FontFile" uid="uid://b84qk8d1c5pfg" path="res://asset game/upheavtt.ttf" id="2_vcvjm"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_2fpva"]
-bg_color = Color(0.620326, 0.475555, 0.200259, 1)
+bg_color = Color(0.723399, 0, 0.10681, 1)
 border_width_left = 4
 border_width_top = 4
 border_width_right = 4
@@ -15,7 +16,8 @@ corner_radius_bottom_right = 5
 corner_radius_bottom_left = 5
 
 [sub_resource type="LabelSettings" id="LabelSettings_ml06h"]
-font_size = 40
+font = ExtResource("2_vcvjm")
+font_size = 50
 
 [node name="CanvasLayer" type="CanvasLayer"]
 script = ExtResource("1_ml06h")
@@ -42,9 +44,9 @@ theme_override_styles/panel = SubResource("StyleBoxFlat_2fpva")
 [node name="Label" type="Label" parent="MarginContainer/CenterContainer/Panel"]
 layout_mode = 0
 offset_left = 32.0
-offset_top = 2.0
+offset_top = 16.0
 offset_right = 271.0
-offset_bottom = 115.0
+offset_bottom = 129.0
 text = "You Won"
 label_settings = SubResource("LabelSettings_ml06h")
 horizontal_alignment = 1
