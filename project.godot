@@ -52,6 +52,7 @@ Left={
 2d_physics/layer_2="wall"
 2d_physics/layer_3="smallapellet"
 2d_physics/layer_4="bigpellet"
+2d_physics/layer_5="mahasiswa"
 
 [rendering]
 

@@ -1,7 +1,7 @@
 class_name Coin
 extends Area2D
 
-signal koin_diambil
+signal koin_diambil(bisa_kalahkan_mahasiswa: bool)
 @onready var anim_player = $AnimationSprite2D
 @onready var animated_sprite_2d = $AnimatedSprite2D
 @onready var anim = $AnimatedSprite2D
@@ -9,6 +9,8 @@ signal koin_diambil
 @onready var audio_player = $AudioStreamPlayer2D
 @onready var collision_shape = $CollisionShape2D
 var is_eaten = false
+
+@export var bisa_kalahkan_mahasiswa = false
 
 func _ready():
 	if animated_sprite_2d:
@@ -24,7 +26,7 @@ func _on_Coin_body_entered(body):
 		
 		$AnimatedSprite2D.visible = false
 		$CollisionShape2D.disabled = true
-		emit_signal("koin_diambil")
+		emit_signal("koin_diambil", bisa_kalahkan_mahasiswa)
 	get_tree().create_timer(sound_pickup.get_stream().get_length()).timeout.connect(queue_free)
 	hide()
 	collision_shape.disabled = true

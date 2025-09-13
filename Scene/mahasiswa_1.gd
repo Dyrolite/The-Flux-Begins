@@ -1,8 +1,10 @@
 extends Area2D
+class_name Mahasiswa
 
 enum MahasiswaState {
 	SCATTER,
-	CHASE
+	CHASE,
+	LARI
 }
 
 var current_scatter_index = 0
@@ -11,13 +13,14 @@ var current_state: MahasiswaState
 
 @export var speed = 120
 @export var movement_target : Resource
-@export var tile_map: TileMapLayer
+@export var tile_map: mazeTilemap
 @export var chasing_target: Node2D
 
-@onready var anim = $AnimatedSprite2D
+
 @onready var navigation_agent_2d = $NavigationAgent2D
 @onready var scatter_timer = $scatterTimer
 @onready var update_scatter_timer = $UpdateScatterTimer
+@onready var lari_timer: Timer = $LariTimer
 var scatter_target_nodes: Array[Node2D]
 
 func _ready():
@@ -25,8 +28,6 @@ func _ready():
 	navigation_agent_2d.target_desired_distance = 20.0
 	navigation_agent_2d.navigation_finished.connect(on_position_reached) # ganti pakai ini
 	call_deferred("populate_target_nodes")
-	if anim:
-		anim.play("mahasiswa")
 
 
 func populate_target_nodes():
@@ -90,6 +91,10 @@ func on_position_reached():
 		scatter_position_reached()
 	elif current_state == MahasiswaState.CHASE:
 		chase_position_reached()
+	elif current_state == MahasiswaState.LARI:
+		print("--- Sampai di titik acak, mencari titik acak baru... (Timer masih berjalan)")
+		var empty_cell_position = tile_map.get_random_empty_cell_position()
+		navigation_agent_2d.target_position = empty_cell_position
 		
 func chase_position_reached():
 	print("kill pacman")
@@ -101,7 +106,7 @@ func scatter_position_reached():
 
 
 	
-func start_chasing_pacman():
+func start_chasing_tikus():
 	if chasing_target == null:
 		print("no chasing target")
 	current_state = MahasiswaState.CHASE
@@ -111,8 +116,25 @@ func start_chasing_pacman():
 
 
 func _on_scatter_timer_timeout() -> void:
-	start_chasing_pacman()
+	start_chasing_tikus()
 
 
 func _on_update_scatter_timer_timeout() -> void:
 	navigation_agent_2d.target_position = chasing_target.position
+
+func lari_dari_tikus():
+	lari_timer.start()
+
+	current_state = MahasiswaState.LARI
+	update_scatter_timer.stop()
+	scatter_timer.stop()
+	print(">>> MEMULAI STATE LARI! Timer di-reset ke ", lari_timer.wait_time, " detik.")
+	
+	var empty_cell_position = tile_map.get_random_empty_cell_position()
+	navigation_agent_2d.target_position = empty_cell_position
+
+
+func _on_lari_timer_timeout() -> void:
+	print("lari selesai")
+	start_chasing_tikus()
+	
