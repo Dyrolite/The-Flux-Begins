@@ -1,8 +1,52 @@
-[gd_scene load_steps=5 format=3 uid="uid://dhsky8sjewug5"]
+[gd_scene load_steps=11 format=3 uid="uid://dhsky8sjewug5"]
 
 [ext_resource type="Script" uid="uid://do5tv01mufx23" path="res://Scene/mahasiswa_1.gd" id="1_jqcos"]
-[ext_resource type="Texture2D" uid="uid://48vkbvfahrx3" path="res://asset game/Bapak2.png" id="2_41tpc"]
+[ext_resource type="Texture2D" uid="uid://by83i1wgd5jym" path="res://asset game/OjolKomplit.png" id="2_1hl3h"]
 [ext_resource type="LabelSettings" uid="uid://vhh4ws3n3mbd" path="res://Scene/poin_label.tres" id="3_1hl3h"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jqcos"]
+atlas = ExtResource("2_1hl3h")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_41tpc"]
+atlas = ExtResource("2_1hl3h")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_1hl3h"]
+animations = [{
+"frames": [{
+"duration": 1.5,
+"texture": SubResource("AtlasTexture_jqcos")
+}, {
+"duration": 1.5,
+"texture": SubResource("AtlasTexture_41tpc")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_58by4"]
+atlas = ExtResource("2_1hl3h")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bni1d"]
+atlas = ExtResource("2_1hl3h")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_mqwjg"]
+animations = [{
+"frames": [{
+"duration": 1.5,
+"texture": SubResource("AtlasTexture_58by4")
+}, {
+"duration": 1.5,
+"texture": SubResource("AtlasTexture_bni1d")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_58by4"]
 radius = 13.0
@@ -10,16 +54,11 @@ radius = 13.0
 [node name="ojol" type="Area2D"]
 script = ExtResource("1_jqcos")
 
-[node name="KejarSprite2D" type="Sprite2D" parent="."]
-texture = ExtResource("2_41tpc")
-region_enabled = true
-region_rect = Rect2(32, 0, 32, 32)
+[node name="BungkamAnimated" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_1hl3h")
 
-[node name="bungkamSprite2D2" type="Sprite2D" parent="."]
-visible = false
-texture = ExtResource("2_41tpc")
-region_enabled = true
-region_rect = Rect2(0, 0, 32, 32)
+[node name="KejarAnimatted" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_mqwjg")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_58by4")

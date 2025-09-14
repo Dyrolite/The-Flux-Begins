@@ -21,6 +21,7 @@ var current_state: MahasiswaState
 @export var chasing_target: Node2D
 @export var point_manager: PointManager
 @export var is_starting_at_home = false
+@export var starting_position = Node2D
 
 @onready var at_home_timer: Timer = $AtHomeTimer
 @onready var navigation_agent_2d = $NavigationAgent2D
@@ -28,18 +29,34 @@ var current_state: MahasiswaState
 @onready var update_scatter_timer = $UpdateScatterTimer
 @onready var lari_timer: Timer = $LariTimer
 @onready var point_label: Label = $pointLabel
-@onready var kejar_sprite_2d: Sprite2D = $KejarSprite2D
-@onready var bungkam_sprite_2d_2: Sprite2D = $bungkamSprite2D2
+@onready var kejar_animatted: AnimatedSprite2D = $KejarAnimatted
+@onready var bungkam_animated: AnimatedSprite2D = $BungkamAnimated
 
 var scatter_target_nodes: Array[Node2D]
 var at_home_target_nodes: Array[Node2D]
 
 func _ready():
+	at_home_timer.timeout.connect(scatter)
 	navigation_agent_2d.path_desired_distance = 4.0
 	navigation_agent_2d.target_desired_distance = 20.0
 	navigation_agent_2d.navigation_finished.connect(on_position_reached) # ganti pakai ini
 	call_deferred("populate_target_nodes")
+	update_animation()
 
+func update_animation():
+	# Fungsi ini mengontrol sprite mana yang aktif
+	if current_state == MahasiswaState.LARI || current_state == MahasiswaState.TERKALAHKAN:
+		kejar_animatted.hide()
+		bungkam_animated.show()
+		bungkam_animated.play("default") # Asumsi nama animasinya "default"
+	elif current_state == MahasiswaState.TERKALAHKAN:
+		kejar_animatted.hide()
+		bungkam_animated.hide()
+		# Anda mungkin punya sprite mata di sini, atur visibilitasnya
+	else: # Ini berlaku untuk CHASE, SCATTER, dll.
+		kejar_animatted.show()
+		bungkam_animated.hide()
+		kejar_animatted.play("default") # Asumsi nama animasinya "default"
 
 func populate_target_nodes():
 	if not movement_target:
@@ -77,7 +94,6 @@ func setup_navigation():
 func start_at_home():
 	current_state = MahasiswaState.MULAI_DI_BASE
 	at_home_timer.start()
-	at_home_timer.timeout.connect(scatter)
 	navigation_agent_2d.target_position = at_home_target_nodes[current_at_home_index].position
 
 func _process(delta):
@@ -142,6 +158,7 @@ func start_chasing_tikus():
 	if chasing_target == null:
 		print("no chasing target")
 	current_state = MahasiswaState.CHASE
+	update_animation()
 	update_scatter_timer.start()
 	navigation_agent_2d.target_position = chasing_target.position
 
@@ -153,8 +170,10 @@ func _on_update_scatter_timer_timeout() -> void:
 
 func lari_dari_tikus():
 	lari_timer.start()
-
 	current_state = MahasiswaState.LARI
+	update_animation()
+	if is_starting_at_home:
+		at_home_timer.stop()
 	update_scatter_timer.stop()
 	scatter_timer.stop()
 	print(">>> MEMULAI STATE LARI! Timer di-reset ke ", lari_timer.wait_time, " detik.")
@@ -169,31 +188,67 @@ func _on_lari_timer_timeout() -> void:
 	
 
 func get_eaten():
-	kejar_sprite_2d.hide()
-	bungkam_sprite_2d_2.show()
+	current_state = MahasiswaState.TERKALAHKAN
+	update_animation()
 	point_label.show()
+	point_label.text = "%d" % point_manager.point_mengalahkan_mahasiswa 
 	await point_manager.pause_saat_kalahkan_mahasiswa()
 	point_label.hide()
 	lari_timer.stop()
-	current_state = MahasiswaState.TERKALAHKAN
 	navigation_agent_2d.target_position = at_home_target_nodes[0].position
 
 func start_chasing_tikus_after_terkalahkan():
 	start_chasing_tikus()
-	bungkam_sprite_2d_2.hide()
-	kejar_sprite_2d.show()
+
 
 func _on_body_entered(body: Node2D) -> void:
+	# Pertama, pastikan yang masuk adalah player. Jika bukan, abaikan.
+	if not body.is_in_group("Player"):
+		return
+		
 	var player = body as Player
-	if current_state == MahasiswaState.LARI:
-		get_eaten()
-	elif current_state == MahasiswaState.CHASE || current_state == MahasiswaState.SCATTER:
-		set_collision_mask_value(1, false)
-		update_scatter_timer.stop()
-		player.die()
-		scatter_timer.wait_time = 600
-		scatter()
+
+	# Logika utama berdasarkan state saat ini
+	# Gunakan "match" untuk struktur yang lebih bersih dan anti-tabrakan logika
+	match current_state:
+		MahasiswaState.LARI:
+			# Jika sedang lari, MAKA HANYA lakukan logika "get_eaten".
+			get_eaten()
+		
+		MahasiswaState.CHASE, MahasiswaState.SCATTER:
+			# Jika sedang mengejar/patroli, MAKA HANYA lakukan logika "player.die()".
+			set_collision_mask_value(1, false)
+			update_scatter_timer.stop()
+			player.die()
+			scatter_timer.wait_time = 600
+			scatter()
+
+		# Untuk state lain (TERKALAHKAN, dll.), jangan lakukan apa-apa saat tabrakan.
+		_:
+			pass
 
 
 func _on_at_home_timer_timeout() -> void:
 	pass # Replace with function body.
+	
+func reset():
+	# Kembalikan ke posisi awal
+	get_tree().paused = true
+	await  get_tree().create_timer(1.0).timeout
+	get_tree().paused = false
+	if starting_position:
+		global_position = starting_position.global_position
+	
+	# Hentikan semua timer untuk memastikan tidak ada state aneh
+	scatter_timer.stop()
+	update_scatter_timer.stop()
+	lari_timer.stop()
+	at_home_timer.stop()
+	
+	# Reset state dan panggil setup navigasi awal
+	# Ini akan memulai patroli (scatter) atau memulai di base
+	setup_navigation()
+	
+	# Pastikan animasi juga kembali ke normal
+	update_animation()
+	

@@ -3,6 +3,7 @@ extends Node
 var total_pellets_count
 var pellets_eaten = 0
 
+@onready var point_manager: PointManager = $"../point manager"
 @onready var ui: CanvasLayer = $"../UI" as UI
 # Gunakan tipe data 'Mahasiswa' yang spesifik
 @export var mahasiswa_array : Array[Mahasiswa]
@@ -18,9 +19,13 @@ func _ready():
 func on_pellet_eaten(bisa_kalahkan_mahasiswa: bool):
 	pellets_eaten += 1
 	if bisa_kalahkan_mahasiswa:
+		get_tree().create_timer(8).timeout.connect(reset_point_for_mahasiswa)
 		for mahasiswa in mahasiswa_array:
 			# Sekarang Godot tahu bahwa 'mahasiswa' memiliki fungsi lari_dari_tikus()
 			mahasiswa.lari_dari_tikus()
 	print("Koin dimakan: ", pellets_eaten, " / ", total_pellets_count)
 	if pellets_eaten == total_pellets_count:
 		ui.game_won()
+
+func reset_point_for_mahasiswa():
+	point_manager.reset_point_for_mahasiswa()

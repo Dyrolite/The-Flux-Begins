@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://de6i2htiqqrdp"
+path="res://.godot/imported/Audio WhatsApp 2025-09-09 pukul 10.53.01_2c45c4af.mp3-6eacc8df2aec191f9f5ed3449c217510.mp3str"
+
+[deps]
+
+source_file="res://asset game/Sound/Audio WhatsApp 2025-09-09 pukul 10.53.01_2c45c4af.mp3"
+dest_files=["res://.godot/imported/Audio WhatsApp 2025-09-09 pukul 10.53.01_2c45c4af.mp3-6eacc8df2aec191f9f5ed3449c217510.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4
