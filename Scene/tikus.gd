@@ -2,12 +2,13 @@ extends CharacterBody2D
 
 class_name Player
 
-signal player_died
+signal player_died(life: int)
 
 @export var start_position = Node2D
 @export var sound_death : AudioStreamPlayer2D
+@export var life: int = 3
+@export var ui: UI
 
-@onready var death_timer: Timer = $deathTimer
 @onready var anim = $AnimatedSprite2D
 @onready var sprite_2d: Sprite2D = $Sprite2D
 
@@ -22,7 +23,7 @@ var shape_query = PhysicsShapeQueryParameters2D.new()
 
 var is_moving:bool = false
 var dir:String = "none"
-
+var is_dead:bool = false
 #variabel siap
 @onready var diretion_pointer = $CollisionShape2D/AnimatedS/prite2D/direction
 
@@ -91,23 +92,33 @@ func get_input():
 
 
 
-# Ganti fungsi die() Anda dengan ini
+# Ganti fungsi die() Anda yang lama dengan ini
 func die():
+	if is_dead:
+		return
+	is_dead = true # Aktifkan penjaga
+	# Kurangi nyawa
+	life -= 1
+	ui.set_lifes(life)
+	print("Nyawa tersisa: ", life)
+	sound_death.play()
 	print("Player mati!")
-	emit_signal("player_died")
-	
+	emit_signal("player_died") 
 	# 1. Hentikan gerakan pemain
 	set_physics_process(false)
-	
-	# 2. Ganti sprite dan putar suara SEKARANG
+	# 2. Ganti sprite normal dengan sprite mati
 	anim.hide()
-	sprite_2d.show()
-	if sound_death:
-		sound_death.play()
-	
-	# 3. MULAI timer 1 detik. Skrip tidak akan berhenti di sini.
-	death_timer.start()
+	sprite_2d.show() # Tampilkan gambar mati
+	# 3. Tunggu selama 2 detik
+	if life <= 0:
+		game_over()
+	else:
+		# Jika masih punya nyawa, tunggu 1 detik lalu reset
+		await get_tree().create_timer(1.0).timeout
+		reset_player()
 
+func game_over():
+	set_collision_layer_value(4, true)
 
 # Tambahkan fungsi baru ini di bawah fungsi die()
 func reset_player():
@@ -124,7 +135,4 @@ func reset_player():
 	#get_tree().call_group("mahasiswa", "reset")
 	# 3. Aktifkan kembali gerakan pemain
 	set_physics_process(true)
-
-
-func _on_death_timer_timeout() -> void:
-	reset_player()
+	is_dead = false

@@ -244,7 +244,7 @@ func reset():
 	update_scatter_timer.stop()
 	lari_timer.stop()
 	at_home_timer.stop()
-	
+	set_collision_mask_value(1, true)
 	# Reset state dan panggil setup navigasi awal
 	# Ini akan memulai patroli (scatter) atau memulai di base
 	setup_navigation()

@@ -1,8 +1,11 @@
 extends Node
 
 class_name PointManager
+@onready var ui: UI = $"../UI" as UI
 
-var point_mengalahkan_mahasiswa = 200
+var base_point_for_ghos_value = 200
+
+var point_mengalahkan_mahasiswa = base_point_for_ghos_value
 var point = 0
 
 func pause_saat_kalahkan_mahasiswa():
@@ -10,7 +13,7 @@ func pause_saat_kalahkan_mahasiswa():
 	get_tree().paused = true
 	await  get_tree().create_timer(1.0).timeout
 	get_tree().paused = false
-	point_mengalahkan_mahasiswa += 200
-
+	point_mengalahkan_mahasiswa += base_point_for_ghos_value
+	ui.set_score(point)
 func reset_point_for_mahasiswa():
-	point_mengalahkan_mahasiswa = 0
+	point_mengalahkan_mahasiswa = base_point_for_ghos_value

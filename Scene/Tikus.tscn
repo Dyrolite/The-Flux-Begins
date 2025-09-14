@@ -50,5 +50,3 @@ frame_progress = 0.557829
 
 [node name="deathTimer" type="Timer" parent="."]
 one_shot = true
-
-[connection signal="timeout" from="deathTimer" to="." method="_on_death_timer_timeout"]

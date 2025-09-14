@@ -57,4 +57,4 @@ Left={
 [rendering]
 
 textures/canvas_textures/default_texture_filter=0
-environment/defaults/default_clear_color=Color(0.955963, 0.955963, 0.955963, 1)
+environment/defaults/default_clear_color=Color(0.31802, 0.31802, 0.318019, 1)
