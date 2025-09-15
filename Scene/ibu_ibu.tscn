@@ -1,0 +1,98 @@
+[gd_scene load_steps=11 format=3 uid="uid://cbac726ghjegf"]
+
+[ext_resource type="Script" uid="uid://do5tv01mufx23" path="res://Scene/mahasiswa_1.gd" id="1_g0akb"]
+[ext_resource type="Texture2D" uid="uid://byl81m7owlphw" path="res://asset game/Ibu2Komplit.png" id="2_v6mfs"]
+[ext_resource type="LabelSettings" uid="uid://vhh4ws3n3mbd" path="res://Scene/poin_label.tres" id="3_be28b"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_g0akb"]
+atlas = ExtResource("2_v6mfs")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_v6mfs"]
+atlas = ExtResource("2_v6mfs")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_be28b"]
+animations = [{
+"frames": [{
+"duration": 1.5,
+"texture": SubResource("AtlasTexture_g0akb")
+}, {
+"duration": 1.5,
+"texture": SubResource("AtlasTexture_v6mfs")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_be28b"]
+atlas = ExtResource("2_v6mfs")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_n6cwb"]
+atlas = ExtResource("2_v6mfs")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_txxp5"]
+animations = [{
+"frames": [{
+"duration": 1.5,
+"texture": SubResource("AtlasTexture_be28b")
+}, {
+"duration": 1.5,
+"texture": SubResource("AtlasTexture_n6cwb")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_n6cwb"]
+radius = 13.0
+
+[node name="ibu ibu" type="Area2D"]
+script = ExtResource("1_g0akb")
+
+[node name="BungkamAnimated" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_be28b")
+
+[node name="KejarAnimatted" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_txxp5")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_n6cwb")
+
+[node name="NavigationAgent2D" type="NavigationAgent2D" parent="."]
+
+[node name="scatterTimer" type="Timer" parent="."]
+wait_time = 3.0
+one_shot = true
+
+[node name="UpdateScatterTimer" type="Timer" parent="."]
+wait_time = 0.2
+
+[node name="LariTimer" type="Timer" parent="."]
+wait_time = 8.0
+one_shot = true
+
+[node name="AtHomeTimer" type="Timer" parent="."]
+wait_time = 7.0
+one_shot = true
+
+[node name="pointLabel" type="Label" parent="."]
+visible = false
+offset_left = -27.0
+offset_top = -36.0
+offset_right = 28.0
+offset_bottom = -5.0
+text = "200"
+label_settings = ExtResource("3_be28b")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="timeout" from="scatterTimer" to="." method="_on_scatter_timer_timeout"]
+[connection signal="timeout" from="UpdateScatterTimer" to="." method="_on_update_scatter_timer_timeout"]
+[connection signal="timeout" from="LariTimer" to="." method="_on_lari_timer_timeout"]
+[connection signal="timeout" from="AtHomeTimer" to="." method="_on_at_home_timer_timeout"]
