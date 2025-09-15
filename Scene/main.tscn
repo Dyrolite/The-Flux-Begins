@@ -1,4 +1,4 @@
-[gd_scene load_steps=42 format=4 uid="uid://lkax4b5lkjsh"]
+[gd_scene load_steps=43 format=4 uid="uid://lkax4b5lkjsh"]
 
 [ext_resource type="PackedScene" uid="uid://brk5he38k1ww8" path="res://Scene/Tikus.tscn" id="1_f6udf"]
 [ext_resource type="Texture2D" uid="uid://bvrmy00jrsksi" path="res://asset game/Base dirt.png" id="2_2wwxx"]
@@ -8,6 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://6tow3iv3xyyv" path="res://Scene/pallet.tscn" id="5_3amdw"]
 [ext_resource type="Script" uid="uid://ep4nwe3he34i" path="res://Scene/coin_manager.gd" id="5_75buv"]
 [ext_resource type="PackedScene" uid="uid://dge3ro6mje5xe" path="res://Scene/mahasiswa_1.tscn" id="6_1xcnr"]
+[ext_resource type="PackedScene" uid="uid://coe5wp4c6hbto" path="res://Scene/money.tscn" id="7_jbas8"]
 [ext_resource type="Resource" uid="uid://b4b5iqtybnc32" path="res://resource/mahasiswa_movement.tres" id="7_ow1sv"]
 [ext_resource type="Script" uid="uid://xh7lqnyc370m" path="res://Scene/musuh.gd" id="8_2ix4a"]
 [ext_resource type="PackedScene" uid="uid://br3w5sej4f2qy" path="res://Scene/canvas_layer.tscn" id="9_c2iwn"]
@@ -248,28 +249,24 @@ ui = NodePath("../UI")
 script = ExtResource("5_75buv")
 mahasiswa_array = [NodePath("../mahasiswas/mahasiswa"), NodePath("../mahasiswas/bapak bapak"), NodePath("../mahasiswas/ibu ibu"), NodePath("../mahasiswas/ojol")]
 
-[node name="BigPellet" parent="coin" instance=ExtResource("5_3amdw")]
-position = Vector2(256, 179)
+[node name="money" parent="coin" instance=ExtResource("7_jbas8")]
+position = Vector2(-304, -212)
 scale = Vector2(0.3, 0.3)
-collision_layer = 8
 bisa_kalahkan_mahasiswa = true
 
-[node name="BigPellet2" parent="coin" instance=ExtResource("5_3amdw")]
-position = Vector2(-251, 181)
+[node name="money2" parent="coin" instance=ExtResource("7_jbas8")]
+position = Vector2(302, -228)
 scale = Vector2(0.3, 0.3)
-collision_layer = 8
 bisa_kalahkan_mahasiswa = true
 
-[node name="BigPellet3" parent="coin" instance=ExtResource("5_3amdw")]
-position = Vector2(304, -227)
+[node name="money3" parent="coin" instance=ExtResource("7_jbas8")]
+position = Vector2(255, 180)
 scale = Vector2(0.3, 0.3)
-collision_layer = 8
 bisa_kalahkan_mahasiswa = true
 
-[node name="BigPellet4" parent="coin" instance=ExtResource("5_3amdw")]
-position = Vector2(-305, -212)
+[node name="money4" parent="coin" instance=ExtResource("7_jbas8")]
+position = Vector2(-251, 185)
 scale = Vector2(0.3, 0.3)
-collision_layer = 8
 bisa_kalahkan_mahasiswa = true
 
 [node name="Pallet" parent="coin" instance=ExtResource("5_3amdw")]
