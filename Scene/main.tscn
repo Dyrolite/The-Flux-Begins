@@ -245,9 +245,10 @@ ui = NodePath("../UI")
 
 [node name="Map (for test)" type="Node2D" parent="."]
 
-[node name="coin" type="Node" parent="." node_paths=PackedStringArray("mahasiswa_array")]
+[node name="coin" type="Node" parent="." node_paths=PackedStringArray("mahasiswa_array", "player")]
 script = ExtResource("5_75buv")
 mahasiswa_array = [NodePath("../mahasiswas/mahasiswa"), NodePath("../mahasiswas/bapak bapak"), NodePath("../mahasiswas/ibu ibu"), NodePath("../mahasiswas/ojol")]
+player = NodePath("../Player")
 
 [node name="money" parent="coin" instance=ExtResource("7_jbas8")]
 position = Vector2(-304, -212)

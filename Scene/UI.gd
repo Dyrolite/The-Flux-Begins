@@ -13,6 +13,7 @@ func set_lifes(life):
 	lifelabel.text = "%d up" % life
 	if life == 0:
 		game_lost()
+		
 
 func set_score(score):
 	gamescore.text = "GAME SCORE: %d" % score

@@ -21,6 +21,7 @@ var shape_query = PhysicsShapeQueryParameters2D.new()
 
 @export var speed:float = 300
 
+var game_is_won:bool = false
 var is_moving:bool = false
 var dir:String = "none"
 var is_dead:bool = false
@@ -90,11 +91,15 @@ func get_input():
 		elif dir == "Up":
 			anim.play("rat1")
 
-
+func win():
+	print("Player Telah Menang!")
+	game_is_won = true
+	# Hentikan gerakan player agar tidak bisa jalan-jalan setelah menang
+	set_physics_process(false)
 
 # Ganti fungsi die() Anda yang lama dengan ini
 func die():
-	if is_dead:
+	if is_dead or game_is_won:
 		return
 	is_dead = true # Aktifkan penjaga
 	# Kurangi nyawa
@@ -123,7 +128,7 @@ func game_over():
 # Tambahkan fungsi baru ini di bawah fungsi die()
 func reset_player():
 	print("Player di-reset.")
-	
+	game_is_won = false
 	# 1. Kembalikan pemain ke posisi awal
 	# Pastikan Anda sudah mengisi variabel 'start_position' di Inspector
 	if start_position:
