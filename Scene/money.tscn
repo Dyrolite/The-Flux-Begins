@@ -1,0 +1,73 @@
+[gd_scene load_steps=12 format=3 uid="uid://coe5wp4c6hbto"]
+
+[ext_resource type="Script" uid="uid://dvq5iet7o0fxd" path="res://Coin.gd" id="1_mbfg3"]
+[ext_resource type="Texture2D" uid="uid://bgcnxs6jlq7w6" path="res://asset game/Moneyy.png" id="2_87xsw"]
+[ext_resource type="AudioStream" uid="uid://xkgfkej7engo" path="res://asset game/Sound/135936__bradwesson__collectcoin.wav" id="3_b0520"]
+[ext_resource type="Script" uid="uid://bw1k7lkcu4obh" path="res://audio_stream_player_2d.gd" id="4_3ahod"]
+[ext_resource type="AudioStream" uid="uid://bntpk4oimbmrr" path="res://asset game/Sound/game-music-loop-3-144252.mp3" id="5_72bn6"]
+[ext_resource type="Script" uid="uid://bcurfc10bs638" path="res://ambiene_game.gd" id="6_q3ayv"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yam41"]
+atlas = ExtResource("2_87xsw")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_krvod"]
+atlas = ExtResource("2_87xsw")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7hi4v"]
+atlas = ExtResource("2_87xsw")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_kc13n"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yam41")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_krvod")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7hi4v")
+}],
+"loop": true,
+"name": &"putar",
+"speed": 4.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_1vg0j"]
+radius = 61.5224
+
+[node name="money" type="Area2D"]
+script = ExtResource("1_mbfg3")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture_filter = 1
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(0.750001, -23.5)
+scale = Vector2(4, 4.264)
+sprite_frames = SubResource("SpriteFrames_kc13n")
+animation = &"putar"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-1, -10)
+shape = SubResource("CircleShape2D_1vg0j")
+debug_color = Color(0.794397, 0.332545, 0.681544, 0.42)
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_b0520")
+script = ExtResource("4_3ahod")
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 2.0
+
+[node name="AudioStreamPlayer2D2" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("5_72bn6")
+volume_db = -8.0
+autoplay = true
+max_distance = 139.0
+script = ExtResource("6_q3ayv")
+
+[connection signal="body_entered" from="." to="." method="_on_Coin_body_entered"]
