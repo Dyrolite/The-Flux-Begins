@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://117hm6vw6rrx"]
+[gd_scene load_steps=15 format=3 uid="uid://6tow3iv3xyyv"]
 
 [ext_resource type="Texture2D" uid="uid://d2c76wq0q6kly" path="res://asset game/coinn-removebg-preview.png" id="1_r8q5o"]
 [ext_resource type="Script" uid="uid://dvq5iet7o0fxd" path="res://Coin.gd" id="1_svtij"]
