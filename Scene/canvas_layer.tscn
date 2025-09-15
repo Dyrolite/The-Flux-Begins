@@ -53,19 +53,30 @@ label_settings = ExtResource("2_p2t86")
 layout_mode = 2
 
 [node name="Panel" type="Panel" parent="MarginContainer/CenterContainer"]
-custom_minimum_size = Vector2(300, 200)
+custom_minimum_size = Vector2(300, 150)
 layout_mode = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_2fpva")
 
 [node name="GameLabel" type="Label" parent="MarginContainer/CenterContainer/Panel"]
 unique_name_in_owner = true
 layout_mode = 0
-offset_left = 5.0
-offset_top = 36.0
-offset_right = 299.0
-offset_bottom = 149.0
+offset_left = 6.0
+offset_top = -12.0
+offset_right = 300.0
+offset_bottom = 101.0
 text = "Game won"
 label_settings = SubResource("LabelSettings_ml06h")
 horizontal_alignment = 1
 vertical_alignment = 1
 uppercase = true
+
+[node name="Button" type="Button" parent="MarginContainer/CenterContainer/Panel"]
+custom_minimum_size = Vector2(100, 30)
+layout_mode = 2
+offset_left = 97.0
+offset_top = 89.0
+offset_right = 197.0
+offset_bottom = 120.0
+text = "restart"
+
+[connection signal="pressed" from="MarginContainer/CenterContainer/Panel/Button" to="." method="_on_button_pressed"]

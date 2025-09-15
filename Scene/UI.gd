@@ -25,3 +25,11 @@ func game_lost():
 func game_won():
 	game_label.text = "Game Won"
 	center_container.show()
+
+
+func _on_button_pressed() -> void:
+	if get_tree().paused:
+		get_tree().paused = false
+		
+	# Perintah ini akan me-reload seluruh scene yang sedang berjalan
+	get_tree().reload_current_scene()
